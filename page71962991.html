@@ -3,8 +3,24 @@ function t_onFuncLoad(funcName,okFunc,time) {if(typeof window[funcName]==='funct
 document.addEventListener('DOMContentLoaded',t_setvisRecs);}})();</script>
 
 <style id="custom-site-tweaks">
+	:root{
+		/* Чуть более насыщенный кремовый, ближе к стилю скрина */
+		--cozy-bg:#e2d2bd;
+		--cozy-bg-2:#d6c0a2;
+		--cozy-card:rgba(255,255,255,.52);
+		--cozy-ink:#121212;
+		--cozy-ink-soft:rgba(18,18,18,.62);
+		--cozy-border:rgba(18,18,18,.14);
+	}
 	html{scroll-behavior:smooth;}
-	body.t-body, .t-records{background-color:#f2e4d3;}
+	body.t-body, .t-records{background-color:var(--cozy-bg);}
+	body.t-body{
+		background-image:
+			radial-gradient(1200px 600px at 15% 0%, rgba(255,255,255,.48) 0%, rgba(255,255,255,0) 62%),
+			radial-gradient(900px 520px at 85% 10%, rgba(255,255,255,.30) 0%, rgba(255,255,255,0) 66%),
+			repeating-linear-gradient(135deg, rgba(18,18,18,.018) 0px, rgba(18,18,18,.018) 1px, rgba(18,18,18,0) 8px, rgba(18,18,18,0) 16px);
+		background-attachment:fixed;
+	}
 	/* Hide Tilda label */
 	#tildacopy,
 	.t-tildalabel,
@@ -14,32 +30,53 @@ document.addEventListener('DOMContentLoaded',t_setvisRecs);}})();</script>
 	/* Override inline backgrounds on key sections */
 	#rec1147674056,
 	#rec1147674096,
-	#rec1324703161{background-color:#f2e4d3 !important;}
+	#rec1324703161{background-color:var(--cozy-bg) !important;}
 	a{transition:color .28s ease, background-color .28s ease, border-color .28s ease, transform .28s ease, box-shadow .28s ease;}
 
-	/* Menu text links as buttons */
+	/* Навигация шапки в стиле скрина: чистый текст + тонкое подчёркивание */
 	#rec1147829631 .tn-atom a{
 		display:inline-flex;
 		align-items:center;
 		justify-content:center;
-		height:36px;
-		padding:8px 12px;
-		border:1px solid rgba(0,0,0,.22);
-		border-radius:999px;
-		background-color:rgba(255,255,255,.72);
+		height:34px;
+		padding:8px 18px;
+		gap:10px;
+		border:none;
+		border-radius:0;
+		background-color:transparent;
+		color:var(--cozy-ink) !important;
+		font-family:"TildaSans", Arial, sans-serif;
+		font-weight:600;
+		letter-spacing:.08em;
+		text-transform:uppercase;
 		text-decoration:none;
 		line-height:1;
 		white-space:nowrap;
 		box-sizing:border-box;
+		position:relative;
 	}
+	#rec1147829631 .tn-atom a::after{
+		content:"";
+		position:absolute;
+		left:12px;
+		right:12px;
+		bottom:-6px;
+		height:1px;
+		background:rgba(18,18,18,.70);
+		transform:scaleX(0);
+		transform-origin:center;
+		transition:transform .4s cubic-bezier(0.4, 0, 0.2, 1);
+	}
+	#rec1147829631 .tn-atom a img,
+	#rec1147829631 .tn-atom a svg{width:16px;height:16px;flex:0 0 16px;}
 
 	/* Header: warm beige + ровная геометрия */
 	#rec1147829631 .t396__artboard,
 	#rec1147829631 .t396__filter,
-	#rec1147829631 .t396__carrier{background-color:rgba(242,228,211,.92) !important;}
+	#rec1147829631 .t396__carrier{background-color:rgba(234,220,200,.94) !important;}
 	#rec1147829631 .t396__artboard{backdrop-filter:saturate(115%) blur(6px);}
 	#rec1147829631 .tn-elem[data-elem-id="1751820849715"] .tn-atom{
-		background-color:rgba(242,228,211,.92) !important;
+		background-color:rgba(234,220,200,.94) !important;
 		box-shadow:0 10px 18px rgba(0,0,0,.08);
 	}
 	#rec1147829631 .t396__artboard::before{
@@ -55,12 +92,22 @@ document.addEventListener('DOMContentLoaded',t_setvisRecs);}})();</script>
 		animation:dh_headerGlow 14s ease-in-out infinite alternate;
 	}
 	@keyframes dh_headerGlow{from{transform:translateX(-8px)} to{transform:translateX(8px)}}
+	#rec1147829631 .t396__artboard::after{
+		content:"";
+		position:absolute;
+		left:0;right:0;bottom:0;
+		height:1px;
+		background:linear-gradient(to right, rgba(47,31,18,0), rgba(47,31,18,.18), rgba(47,31,18,0));
+		pointer-events:none;
+	}
 
 	/* Ровно выравниваем кнопки меню по вертикали (desktop) */
-	#rec1147829631 .tn-elem[data-elem-id="1751820416457"],
-	#rec1147829631 .tn-elem[data-elem-id="1751820436580"],
-	#rec1147829631 .tn-elem[data-elem-id="1751820452549"],
-	#rec1147829631 .tn-elem[data-elem-id="1751820472533"]{top:32px !important;}
+	@media screen and (min-width:980px){
+		#rec1147829631 .tn-elem[data-elem-id="1751820416457"],
+		#rec1147829631 .tn-elem[data-elem-id="1751820436580"],
+		#rec1147829631 .tn-elem[data-elem-id="1751820452549"],
+		#rec1147829631 .tn-elem[data-elem-id="1751820472533"]{top:32px !important;}
+	}
 
 	/* Лёгкая «живая» плавность в шапке */
 	#rec1147829631 .tn-elem[data-elem-id="1751820416457"],
@@ -71,7 +118,30 @@ document.addEventListener('DOMContentLoaded',t_setvisRecs);}})();</script>
 	#rec1147829631 .tn-elem[data-elem-id="1751820452549"]{animation-delay:2.4s;}
 	#rec1147829631 .tn-elem[data-elem-id="1751820472533"]{animation-delay:3.6s;}
 	@media (hover:hover){
-		#rec1147829631 .tn-atom a:hover{background-color:rgba(255,255,255,.92);transform:translateY(-1px);}
+		#rec1147829631 .tn-atom a:hover{transform:translateY(-1px);}
+		#rec1147829631 .tn-atom a:hover::after{transform:scaleX(1);}
+	}
+
+	/* Cozy product cards: мягкое появление/hover */
+	.js-product{
+		opacity:0;
+		transform:translateY(10px);
+		transition:opacity .6s ease-in-out, transform .6s cubic-bezier(0.4, 0, 0.2, 1);
+		will-change:opacity, transform;
+	}
+	.js-product.dh-inview{opacity:1;transform:none;}
+	.js-product .t754__content{
+		background:var(--cozy-card);
+		border:1px solid var(--cozy-border);
+		border-radius:18px;
+		padding:16px 16px 18px;
+		box-shadow:0 8px 18px rgba(0,0,0,.06);
+		transition:transform .4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow .4s cubic-bezier(0.4, 0, 0.2, 1), background-color .4s ease-in-out;
+	}
+	.js-product .t754__imgwrapper{border-radius:14px;overflow:hidden;}
+	@media (hover:hover){
+		.js-product:hover .t754__content{transform:translateY(-5px) scale(1.02);box-shadow:0 18px 34px rgba(0,0,0,.10);background:rgba(255,255,255,.70);}
+		.js-product:focus-within .t754__content{transform:translateY(-5px) scale(1.02);box-shadow:0 18px 34px rgba(0,0,0,.10);}
 	}
 
 	/* Subtle motion */
@@ -87,6 +157,8 @@ document.addEventListener('DOMContentLoaded',t_setvisRecs);}})();</script>
 		#rec1147829631 .tn-elem[data-elem-id="1751821902117"] .tn-atom,
 		#rec1147829631 .tn-elem[data-elem-id="1751821771110"] .tn-atom{animation:none !important;}
 		#rec1147829631 .t396__artboard::before{animation:none !important;}
+		.js-product{opacity:1 !important;transform:none !important;transition:none !important;}
+		.js-product .t754__content{transition:none !important;transform:none !important;box-shadow:0 8px 18px rgba(0,0,0,.06) !important;}
 		*{transition:none !important;}
 	}
 
@@ -102,6 +174,32 @@ document.addEventListener('DOMContentLoaded',t_setvisRecs);}})();</script>
 	#rec1324703161 .t564__logo,
 	#rec1324703161 .t564__text{color:#000 !important;}
 </style>
+
+<script id="cozy-scroll-in">
+	t_onReady(function(){
+		try{
+			if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+				document.querySelectorAll('.js-product').forEach(function(el){ el.classList.add('dh-inview'); });
+				return;
+			}
+			var cards = document.querySelectorAll('.js-product');
+			if (!cards || !cards.length) return;
+			if (!('IntersectionObserver' in window)) {
+				cards.forEach(function(el){ el.classList.add('dh-inview'); });
+				return;
+			}
+			var io = new IntersectionObserver(function(entries){
+				entries.forEach(function(entry){
+					if (entry.isIntersecting) {
+						entry.target.classList.add('dh-inview');
+						io.unobserve(entry.target);
+					}
+				});
+			},{root:null, rootMargin:'0px 0px -10% 0px', threshold:0.08});
+			cards.forEach(function(el){ io.observe(el); });
+		}catch(e){/* noop */}
+	});
+</script>
 
 <script type="application/ld+json" id="faq-schema">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Как оформить заказ?","acceptedAnswer":{"@type":"Answer","text":"Выберите товар в каталоге, откройте карточку и добавьте в корзину. Если удобнее — оставьте заявку через форму на сайте, и мы поможем подобрать изделие и подтвердить заказ."}},{"@type":"Question","name":"Делаете ли вы доставку по России?","acceptedAnswer":{"@type":"Answer","text":"Да, отправляем заказы по России. Способ доставки и срок зависят от города — детали подскажем при подтверждении заказа."}},{"@type":"Question","name":"Как выбрать размер (пояс, наколенник)?","acceptedAnswer":{"@type":"Answer","text":"Снимите мерки по зоне носки (талия/бедра или обхват колена) и напишите нам — подскажем подходящий размер и посадку."}},{"@type":"Question","name":"Как ухаживать за изделиями из шерсти?","acceptedAnswer":{"@type":"Answer","text":"Рекомендуем деликатную стирку в прохладной воде, мягкие средства для шерсти и сушку в разложенном виде. Не используйте отбеливатели и высокие температуры."}},{"@type":"Question","name":"Подойдут ли изделия людям с чувствительной кожей?","acceptedAnswer":{"@type":"Answer","text":"Шерсть — натуральный материал, но реакция у всех разная. Если у вас есть склонность к раздражению или аллергии, уточните у врача и напишите нам — подберём вариант носки (например, поверх тонкого слоя одежды)."}},{"@type":"Question","name":"Можно ли вернуть или обменять товар?","acceptedAnswer":{"@type":"Answer","text":"Да, обмен/возврат возможен согласно правилам дистанционной торговли и состоянию товара. Напишите нам — подскажем порядок и необходимые шаги."}}]}</script>
 
