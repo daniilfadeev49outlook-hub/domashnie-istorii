@@ -1,0 +1,18 @@
+# OS / editor junk
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# VS Code
+.vscode/
+
+# Node / build artifacts (not expected, but safe)
+node_modules/
+dist/
+build/
+
+# Logs
+*.log
+
+# Tilda / exports sometimes create temp files
+*.tmp
