@@ -376,8 +376,8 @@ body.is-rebuilt-home .hero__image{
   body.is-rebuilt-home .hero__inner{gap:18px;}
   body.is-rebuilt-home .hero__title{font-size:36px;}
   body.is-rebuilt-home .hero__subtitle{font-size:16px;}
-  body.is-rebuilt-home .hero__actions{flex-direction:column; align-items:center;}
-  body.is-rebuilt-home .hero__button{width:min(100%, 420px);}
+  body.is-rebuilt-home .hero__actions{flex-direction:column; align-items:flex-start;}
+  body.is-rebuilt-home .hero__button{width:100%; max-width:420px;}
 }
 
 /* Hide old exported cover/menu on rebuilt home to avoid duplicates */
