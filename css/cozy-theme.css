@@ -30,6 +30,7 @@
 }
 
 html{scroll-behavior:smooth;}
+html, body{overflow-x:hidden;}
 body.t-body, .t-records{background-color:var(--cozy-bg) !important;}
 body.t-body{
   color:var(--cozy-ink);
@@ -41,6 +42,19 @@ body.t-body{
     radial-gradient(900px 520px at 82% 10%, rgba(255,255,255,.35) 0%, rgba(255,255,255,0) 66%),
     repeating-linear-gradient(135deg, rgba(26,25,23,.020) 0px, rgba(26,25,23,.020) 1px, rgba(26,25,23,0) 9px, rgba(26,25,23,0) 18px);
   background-attachment:fixed;
+}
+
+/* Prevent rare mobile horizontal scroll (e.g., some Android devices). */
+body.is-rebuilt-home #tilda-root,
+body.is-rebuilt-home .t-records,
+body.is-rebuilt-secondary #tilda-root,
+body.is-rebuilt-secondary .t-records{
+  overflow-x:hidden;
+}
+
+body.is-rebuilt-home #tilda-root .t396__artboard,
+body.is-rebuilt-secondary #tilda-root .t396__artboard{
+  overflow:hidden;
 }
 
 /* Hide Tilda label */
