@@ -373,10 +373,10 @@ body.is-rebuilt-home .hero__image{
 
 @media (max-width:640px){
   body.is-rebuilt-home .hero{padding:34px 0 14px;}
-  body.is-rebuilt-home .hero__inner{gap:18px;}
+  body.is-rebuilt-home .hero__inner{gap:18px; padding:0 12px;}
   body.is-rebuilt-home .hero__title{font-size:36px;}
   body.is-rebuilt-home .hero__subtitle{font-size:16px;}
-  body.is-rebuilt-home .hero__actions{flex-direction:column; align-items:center;}
+  body.is-rebuilt-home .hero__actions{flex-direction:column; align-items:flex-start;}
   body.is-rebuilt-home .hero__button{width:min(100%, 320px); height:40px; padding:0 14px; font-size:15px;}
 }
 
