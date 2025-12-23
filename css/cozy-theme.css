@@ -220,6 +220,11 @@ body.is-rebuilt-home .site-nav__link{
   body.is-rebuilt-secondary .site-nav__link{
     padding:8px 4px;
   }
+
+  /* Home (mobile): center header content */
+  body.is-rebuilt-home .site-header__inner{align-items:center;}
+  body.is-rebuilt-home .site-logo{width:100%; text-align:center;}
+  body.is-rebuilt-home .site-nav{justify-content:center; text-align:center;}
 }
 body.is-rebuilt-secondary .site-nav__link{
   position:relative;
@@ -376,8 +381,10 @@ body.is-rebuilt-home .hero__image{
   body.is-rebuilt-home .hero__inner{gap:18px; padding:0 20px;}
   body.is-rebuilt-home .hero__title{font-size:36px;}
   body.is-rebuilt-home .hero__subtitle{font-size:16px;}
-  body.is-rebuilt-home .hero__actions{flex-direction:column; align-items:flex-start;}
+  body.is-rebuilt-home .hero__content{text-align:center;}
+  body.is-rebuilt-home .hero__actions{flex-direction:column; align-items:center;}
   body.is-rebuilt-home .hero__button{width:min(100%, 260px); height:40px; padding:0 14px; font-size:15px;}
+  body.is-rebuilt-home .hero__media{justify-content:center;}
 }
 
 /* Hide old exported cover/menu on rebuilt home to avoid duplicates */
