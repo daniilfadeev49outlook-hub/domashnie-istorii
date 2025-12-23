@@ -1,0 +1,531 @@
+/* Cozy vintage theme for Tilda-exported pages (Домашние истории)
+   Goals: warm ivory palette, paper texture, serif headings, cozy buttons, fixed symmetric header,
+   gallery-like product cards with soft hover, dark footer.
+*/
+
+/* Google Fonts (allowed): loaded via @import to keep HTML edits minimal */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Open+Sans:wght@400;500;600;700&display=swap');
+
+:root{
+  /* Palette */
+  --cozy-bg:#efe3d4;            /* light cream */
+  --cozy-bg-2:#e2d2bd;          /* darker cream */
+  --cozy-paper:#f6eee3;         /* paper card */
+  --cozy-ink:#1a1917;           /* warm black */
+  --cozy-ink-soft:rgba(26,25,23,.68);
+  --cozy-border:rgba(26,25,23,.16);
+
+  --cozy-cover-text:#ffffff;
+
+  --cozy-terracotta:#b25a3c;
+  --cozy-mustard:#b1842c;
+  --cozy-pine:#254a38;
+  --cozy-burgundy:#6f2d2f;
+
+  --cozy-shadow:0 14px 30px rgba(0,0,0,.10);
+  --cozy-shadow-soft:0 10px 22px rgba(0,0,0,.08);
+  --cozy-radius:18px;
+
+  --cozy-header-h:64px;
+}
+
+html{scroll-behavior:smooth;}
+body.t-body, .t-records{background-color:var(--cozy-bg) !important;}
+body.t-body{
+  color:var(--cozy-ink);
+  font-family:'Open Sans', system-ui, -apple-system, Segoe UI, Arial, sans-serif;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+  background-image:
+    radial-gradient(1100px 520px at 18% 0%, rgba(255,255,255,.55) 0%, rgba(255,255,255,0) 60%),
+    radial-gradient(900px 520px at 82% 10%, rgba(255,255,255,.35) 0%, rgba(255,255,255,0) 66%),
+    repeating-linear-gradient(135deg, rgba(26,25,23,.020) 0px, rgba(26,25,23,.020) 1px, rgba(26,25,23,0) 9px, rgba(26,25,23,0) 18px);
+  background-attachment:fixed;
+}
+
+/* Hide Tilda label */
+#tildacopy,
+.t-tildalabel,
+.t-tildalabel__wrapper,
+.t-tildalabel__link{display:none !important;visibility:hidden !important;opacity:0 !important;height:0 !important;}
+
+/* Rebuilt secondary page: hide exported fixed nav to avoid duplicates */
+body.is-rebuilt-secondary #rec1147775986{display:none !important;}
+
+/* Typography */
+/* IMPORTANT: do not force text color globally for all Tilda blocks.
+   Some blocks (covers) rely on white text and would lose contrast. */
+.t-title, .t-title_xl, .t-title_lg, .t-title_md, .t-title_sm, .t-title_xs{
+  font-family:'Cormorant Garamond', Georgia, serif !important;
+  letter-spacing:.01em;
+}
+.t-text, .t-descr, .t-name{
+  font-family:'Open Sans', system-ui, -apple-system, Segoe UI, Arial, sans-serif !important;
+}
+
+a{color:inherit;}
+.t-menu__link-item, a{transition:color .28s ease, background-color .28s ease, border-color .28s ease, transform .35s ease, box-shadow .35s ease, opacity .28s ease;}
+
+/* Keep cover text readable (secondary page hero + contact cover) */
+.t-cover .t-title,
+.t-cover .t-descr,
+.t-cover .t-text,
+.t-cover .t-name,
+.t-cover .t-cover__wrapper,
+.t-cover .t-cover__wrapper *{
+  color:var(--cozy-cover-text) !important;
+}
+
+/* ===== Rebuilt home (custom header + hero) ===== */
+.sr-only{
+  position:absolute;
+  width:1px;
+  height:1px;
+  padding:0;
+  margin:-1px;
+  overflow:hidden;
+  clip:rect(0,0,0,0);
+  white-space:nowrap;
+  border:0;
+}
+
+body.is-rebuilt-home .site-header{
+  position:sticky;
+  top:0;
+  z-index:10000;
+  background:rgba(226,210,189,.92);
+  backdrop-filter:saturate(120%) blur(8px);
+  border-bottom:1px solid rgba(26,25,23,.12);
+}
+
+/* Home: hide exported Tilda store/catalog blocks (we use catalog.html instead) */
+body.is-rebuilt-home #rec1147674046,
+body.is-rebuilt-home #rec1147674086,
+body.is-rebuilt-home #rec1147674106{
+  display:none !important;
+}
+
+/* Same header styling for secondary shell page */
+body.is-rebuilt-secondary .site-header{
+  position:sticky;
+  top:0;
+  z-index:10000;
+  background:rgba(226,210,189,.92);
+  backdrop-filter:saturate(120%) blur(8px);
+  border-bottom:1px solid rgba(26,25,23,.12);
+}
+body.is-rebuilt-home .site-header__inner{
+  max-width:1120px;
+  margin:0 auto;
+  padding:14px 18px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:18px;
+}
+body.is-rebuilt-secondary .site-header__inner{
+  max-width:1120px;
+  margin:0 auto;
+  padding:14px 18px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:18px;
+}
+body.is-rebuilt-home .site-logo{
+  font-family:'Cormorant Garamond', Georgia, serif;
+  font-weight:700;
+  letter-spacing:.02em;
+  text-decoration:none;
+  font-size:22px;
+}
+body.is-rebuilt-secondary .site-logo{
+  font-family:'Cormorant Garamond', Georgia, serif;
+  font-weight:700;
+  letter-spacing:.02em;
+  text-decoration:none;
+  font-size:22px;
+}
+body.is-rebuilt-home .site-nav{
+  display:flex;
+  gap:18px;
+  flex-wrap:wrap;
+  justify-content:flex-end;
+}
+body.is-rebuilt-secondary .site-nav{
+  display:flex;
+  gap:18px;
+  flex-wrap:wrap;
+  justify-content:flex-end;
+}
+body.is-rebuilt-home .site-nav__link{
+  position:relative;
+  text-decoration:none;
+  text-transform:uppercase;
+  letter-spacing:.10em;
+  font-weight:600;
+  font-size:12px;
+  padding:10px 4px;
+}
+body.is-rebuilt-secondary .site-nav__link{
+  position:relative;
+  text-decoration:none;
+  text-transform:uppercase;
+  letter-spacing:.10em;
+  font-weight:600;
+  font-size:12px;
+  padding:10px 4px;
+}
+body.is-rebuilt-home .site-nav__link::after{
+  content:"";
+  position:absolute;
+  left:2px;
+  right:2px;
+  bottom:6px;
+  height:1px;
+  background:rgba(26,25,23,.75);
+  transform:scaleX(0);
+  transform-origin:center;
+  transition:transform .45s cubic-bezier(0.4,0,0.2,1);
+}
+body.is-rebuilt-secondary .site-nav__link::after{
+  content:"";
+  position:absolute;
+  left:2px;
+  right:2px;
+  bottom:6px;
+  height:1px;
+  background:rgba(26,25,23,.75);
+  transform:scaleX(0);
+  transform-origin:center;
+  transition:transform .45s cubic-bezier(0.4,0,0.2,1);
+}
+@media (hover:hover){
+  body.is-rebuilt-home .site-nav__link:hover::after{transform:scaleX(1);}
+  body.is-rebuilt-secondary .site-nav__link:hover::after{transform:scaleX(1);}
+}
+
+/* ===== Catalog clarity (T754) ===== */
+/* Make product grid feel like a real catalog: clear cards, readable name/price, consistent spacing. */
+#rec1147674086 .t754__parent{row-gap:28px !important;}
+
+#rec1147674086 .t754__col{
+  border-radius:var(--cozy-radius);
+  background:rgba(246,238,227,.82);
+  border:1px solid rgba(26,25,23,.10);
+  padding:14px 14px 16px;
+  box-shadow:var(--cozy-shadow-soft);
+}
+
+#rec1147674086 .t754__imgwrapper,
+#rec1147674086 .t754__bgimg{
+  border-radius:calc(var(--cozy-radius) - 6px);
+}
+
+#rec1147674086 .t754__textwrapper{padding-top:12px !important;}
+
+#rec1147674086 .t754__title{
+  font-family:'Open Sans', system-ui, -apple-system, Segoe UI, Arial, sans-serif !important;
+  font-weight:700 !important;
+  letter-spacing:.01em;
+  font-size:16px !important;
+  line-height:1.25;
+}
+
+#rec1147674086 .t754__price{
+  font-family:'Open Sans', system-ui, -apple-system, Segoe UI, Arial, sans-serif !important;
+  font-weight:700 !important;
+  font-size:16px !important;
+  color:var(--cozy-ink) !important;
+}
+
+#rec1147674086 .t754__descr{color:var(--cozy-ink-soft) !important;}
+
+#rec1147674086 .t-btnflex.t-btnflex_type_button{
+  border-radius:999px !important;
+}
+
+@media (hover:hover){
+  #rec1147674086 .t754__col:hover{transform:translateY(-2px);}
+}
+
+body.is-rebuilt-home .hero{
+  padding:48px 0 18px;
+}
+body.is-rebuilt-home .hero__inner{
+  max-width:1120px;
+  margin:0 auto;
+  padding:0 18px;
+  display:grid;
+  grid-template-columns: 1.2fr .8fr;
+  gap:28px;
+  align-items:center;
+}
+body.is-rebuilt-home .hero__title{
+  font-family:'Cormorant Garamond', Georgia, serif;
+  font-weight:700;
+  letter-spacing:.01em;
+  margin:0 0 10px;
+  font-size:54px;
+  line-height:1.05;
+}
+body.is-rebuilt-home .hero__subtitle{
+  margin:0 0 18px;
+  color:var(--cozy-ink-soft);
+  font-size:18px;
+  line-height:1.5;
+}
+body.is-rebuilt-home .hero__actions{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+}
+body.is-rebuilt-home .hero__button{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  height:44px;
+  padding:0 18px;
+  border-radius:999px;
+  background:rgba(246,238,227,.92);
+  border:1px solid rgba(26,25,23,.18);
+  text-decoration:none;
+  font-weight:600;
+  box-shadow:var(--cozy-shadow-soft);
+}
+body.is-rebuilt-home .hero__button--ghost{
+  background:transparent;
+  box-shadow:none;
+}
+@media (hover:hover){
+  body.is-rebuilt-home .hero__button:hover{transform:translateY(-1px);}
+}
+body.is-rebuilt-home .hero__media{
+  display:flex;
+  justify-content:flex-end;
+}
+body.is-rebuilt-home .hero__image{
+  width:100%;
+  max-width:420px;
+  height:auto;
+  border-radius:var(--cozy-radius);
+  box-shadow:var(--cozy-shadow);
+}
+@media (max-width:900px){
+  body.is-rebuilt-home .hero__inner{grid-template-columns:1fr;}
+  body.is-rebuilt-home .hero__media{justify-content:flex-start;}
+  body.is-rebuilt-home .hero__title{font-size:44px;}
+}
+
+/* Hide old exported cover/menu on rebuilt home to avoid duplicates */
+body.is-rebuilt-home #rec1149664946,
+body.is-rebuilt-home #rec1147829631,
+body.is-rebuilt-home #rec1147674036{display:none !important;}
+
+/* ===== Header (both pages) ===== */
+/* Main page zero-header */
+#rec1147829631{position:sticky; top:0; z-index:9999;}
+#rec1147829631 .t396__artboard,
+#rec1147829631 .t396__filter,
+#rec1147829631 .t396__carrier{background-color:rgba(226,210,189,.92) !important;}
+#rec1147829631 .t396__artboard{backdrop-filter:saturate(120%) blur(8px);}
+#rec1147829631 .t396__artboard::after{
+  content:"";
+  position:absolute;
+  left:0;right:0;bottom:0;
+  height:1px;
+  background:linear-gradient(to right, rgba(26,25,23,0), rgba(26,25,23,.18), rgba(26,25,23,0));
+  pointer-events:none;
+}
+
+#rec1147829631 .tn-atom a{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:10px 18px;
+  height:38px;
+  gap:10px;
+  background:transparent;
+  border:none;
+  border-radius:0;
+  text-transform:uppercase;
+  letter-spacing:.10em;
+  font-weight:600;
+  color:var(--cozy-ink) !important;
+  position:relative;
+}
+#rec1147829631 .tn-atom a::after{
+  content:"";
+  position:absolute;
+  left:12px;
+  right:12px;
+  bottom:-6px;
+  height:1px;
+  background:rgba(26,25,23,.75);
+  transform:scaleX(0);
+  transform-origin:center;
+  transition:transform .45s cubic-bezier(0.4,0,0.2,1);
+}
+@media (hover:hover){
+  #rec1147829631 .tn-atom a:hover{transform:translateY(-1px);}
+  #rec1147829631 .tn-atom a:hover::after{transform:scaleX(1);}
+}
+
+/* Second page T229 fixed nav */
+#rec1147775986 #nav1147775986{background:rgba(226,210,189,.92) !important;}
+#rec1147775986 .t229__maincontainer{height:var(--cozy-header-h) !important;}
+#rec1147775986 #nav1147775986{height:var(--cozy-header-h) !important; backdrop-filter:saturate(120%) blur(8px);}
+#rec1147775986 .t229__centerside{width:100%; display:flex; justify-content:center;}
+#rec1147775986 .t-menu__list{display:flex; align-items:center; justify-content:center; gap:26px;}
+#rec1147775986 .t229__list_item{padding:0 !important;}
+#rec1147775986 .t229__list_item .t-menu__link-item{
+  font-family:'Open Sans', system-ui, -apple-system, Segoe UI, Arial, sans-serif !important;
+  font-size:12px !important;
+  color:var(--cozy-ink) !important;
+  font-weight:600 !important;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  position:relative;
+  padding:10px 12px;
+}
+#rec1147775986 .t229__list_item .t-menu__link-item::after{
+  content:"";
+  position:absolute;
+  left:10px;
+  right:10px;
+  bottom:4px;
+  height:1px;
+  background:rgba(26,25,23,.75);
+  transform:scaleX(0);
+  transform-origin:center;
+  transition:transform .45s cubic-bezier(0.4,0,0.2,1);
+}
+@media (hover:hover){
+  #rec1147775986 .t229__list_item .t-menu__link-item:hover{transform:translateY(-1px);}
+  #rec1147775986 .t229__list_item .t-menu__link-item:hover::after{transform:scaleX(1);}
+}
+
+/* Provide top offset room for fixed headers when clicking anchors */
+:target{scroll-margin-top:calc(var(--cozy-header-h) + 18px);}
+
+/* ===== Paper blocks ===== */
+.t-section__container, .t-container{position:relative;}
+
+/* Give many content blocks a paper-card feel without changing markup */
+.t-col .t-descr, .t-col .t-text, .t-col .t-name{color:var(--cozy-ink) !important;}
+
+/* ===== Buttons ===== */
+.t-btn, .t-btnflex.t-btnflex_type_button{
+  border-radius:999px !important;
+  border:none !important;
+  background:var(--cozy-terracotta) !important;
+  color:#fff !important;
+  box-shadow:0 10px 0 rgba(0,0,0,.16);
+  transform:translateY(0);
+  transition:transform .2s ease, box-shadow .2s ease, filter .2s ease;
+}
+@media (hover:hover){
+  .t-btn:hover, .t-btnflex.t-btnflex_type_button:hover{filter:saturate(110%) brightness(1.02); transform:translateY(-2px); box-shadow:0 12px 0 rgba(0,0,0,.14);}
+  .t-btn:active, .t-btnflex.t-btnflex_type_button:active{transform:translateY(2px); box-shadow:0 6px 0 rgba(0,0,0,.16);}
+}
+
+/* ===== Product cards => gallery / carousel ===== */
+/* Main page catalog block t754 */
+#rec1147674086 .t754__parent{
+  display:flex !important;
+  flex-wrap:nowrap !important;
+  gap:22px !important;
+  overflow-x:auto !important;
+  padding:10px 10px 22px !important;
+  scroll-snap-type:x mandatory;
+  -webkit-overflow-scrolling:touch;
+}
+#rec1147674086 .t754__col{
+  flex:0 0 340px !important;
+  width:340px !important;
+  max-width:340px !important;
+  scroll-snap-align:start;
+}
+@media screen and (max-width:960px){
+  #rec1147674086 .t754__col{flex-basis:78vw !important; width:78vw !important; max-width:78vw !important;}
+}
+
+/* Make scrollbar subtle */
+#rec1147674086 .t754__parent::-webkit-scrollbar{height:10px;}
+#rec1147674086 .t754__parent::-webkit-scrollbar-track{background:rgba(26,25,23,.06); border-radius:999px;}
+#rec1147674086 .t754__parent::-webkit-scrollbar-thumb{background:rgba(26,25,23,.22); border-radius:999px;}
+
+/* Photo-like physical card */
+#rec1147674086 .t754__content{
+  background:rgba(246,238,227,.78) !important;
+  border:1px solid var(--cozy-border) !important;
+  border-radius:var(--cozy-radius) !important;
+  box-shadow:var(--cozy-shadow-soft);
+  transform:translateY(0);
+  transition:all .4s ease-in-out;
+  position:relative;
+  overflow:hidden;
+}
+#rec1147674086 .t754__content::before,
+#rec1147674086 .t754__content::after{
+  content:"";
+  position:absolute;
+  inset:10px;
+  border-radius:calc(var(--cozy-radius) - 8px);
+  pointer-events:none;
+}
+#rec1147674086 .t754__content::before{
+  border:1px dashed rgba(26,25,23,.16);
+  opacity:.75;
+}
+#rec1147674086 .t754__content::after{
+  inset:auto;
+  left:16px; top:16px;
+  width:42px; height:42px;
+  border-left:2px solid rgba(26,25,23,.22);
+  border-top:2px solid rgba(26,25,23,.22);
+  border-radius:10px 0 0 0;
+  opacity:.55;
+}
+
+@media (hover:hover){
+  #rec1147674086 .t754__col:hover .t754__content{
+    transform:translateY(-5px);
+    box-shadow:0 20px 40px rgba(0,0,0,.14);
+    background:rgba(246,238,227,.92) !important;
+  }
+}
+
+#rec1147674086 .t754__title{font-family:'Cormorant Garamond', Georgia, serif !important; font-weight:700 !important;}
+#rec1147674086 .t754__descr{color:var(--cozy-ink-soft) !important;}
+
+/* ===== Quote / slogan accent ===== */
+/* Second page hero slogan already in cover; accent it */
+#rec1147768491 .t102__descr{
+  background:rgba(246,238,227,.65);
+  border:1px solid rgba(26,25,23,.16);
+  border-radius:999px;
+  display:inline-block;
+  padding:12px 18px;
+  backdrop-filter:blur(6px);
+}
+
+/* ===== Dark footer ===== */
+#rec1147778976 .t-cover__filter,
+#rec1147778976 .t-cover__carrier{
+  filter:saturate(85%) sepia(35%) contrast(1.02) brightness(.85);
+}
+#rec1147778976{background-color:#20160f !important;}
+#rec1147778976 .t-cover__filter{
+  background-image:linear-gradient(to bottom, rgba(32,22,15,.88), rgba(32,22,15,.92)) !important;
+}
+#rec1147778976 .t-title,
+#rec1147778976 .t-descr,
+#rec1147778976 .t-text,
+#rec1147778976 a{color:rgba(255,245,232,.92) !important;}
+
+/* ===== Reduced motion ===== */
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto;}
+  *{transition:none !important; animation:none !important;}
+}

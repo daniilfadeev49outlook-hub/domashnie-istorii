@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Домашние истории — Каталог</title>
+  <meta name="description" content="Наши изделия: 15 уникальных вещей, созданных с теплом и заботой" />
+  <link rel="icon" href="images/tildafavicon.ico" />
+  <link rel="stylesheet" href="css/fonts-tildasans.css" />
+  <link rel="stylesheet" href="css/catalog.css" />
+  <script defer src="js/catalog.js"></script>
+</head>
+<body>
+  <main class="page" id="page">
+    <header class="catalog-hero" aria-labelledby="catalog-title">
+      <div class="hero-inner">
+        <div class="hero-topline">
+          <a class="brand" href="index.html" aria-label="На главную">
+            <span class="brand__mark" aria-hidden="true">Домашние истории</span>
+          </a>
+          <div class="cart" aria-live="polite">
+            <span class="cart__label">В корзине:</span>
+            <span class="cart__count" id="cartCount">0</span>
+          </div>
+        </div>
+
+        <div class="hero-title-wrap">
+          <h1 class="hero-title" id="catalog-title">Наши изделия</h1>
+          <p class="hero-subtitle">15 уникальных вещей, созданных с теплом и заботой</p>
+        </div>
+
+        <nav class="filters" aria-label="Фильтры каталога">
+          <button class="filter-tag is-active" type="button" data-filter="all" aria-pressed="true">
+            <span class="filter-tag__text">Все</span>
+          </button>
+          <button class="filter-tag" type="button" data-filter="plaids" aria-pressed="false">
+            <span class="filter-tag__text">Пледы</span>
+          </button>
+          <button class="filter-tag" type="button" data-filter="pillows" aria-pressed="false">
+            <span class="filter-tag__text">Подушки</span>
+          </button>
+          <button class="filter-tag" type="button" data-filter="clothes" aria-pressed="false">
+            <span class="filter-tag__text">Одежда</span>
+          </button>
+        </nav>
+      </div>
+    </header>
+
+    <section class="catalog" aria-label="Каталог товаров">
+      <div class="catalog-inner">
+        <div class="catalog-divider" aria-hidden="true"></div>
+
+        <div class="empty-state" id="emptyState" hidden>
+          <div class="empty-illustration" aria-hidden="true"></div>
+          <p class="empty-title">Скоро появится что-то новенькое</p>
+          <p class="empty-text">А пока можно заглянуть в другие разделы — там уже много тепла.</p>
+        </div>
+
+        <div class="grid" id="productGrid">
+          <article class="product-card" data-category="clothes" data-id="1498486363994" style="--delay: 0ms;">
+            <div class="product-image">
+              <img src="images/tild3834-6163-4435-a465-376435613261__photo.jpg" alt="Пояс меховой из шерсти" loading="lazy" />
+              <div class="price-tag" aria-label="Цена">6 000 ₽</div>
+              <div class="product-overlay">
+                <button class="quick-view" type="button" data-action="details" data-id="1498486363994">Подробнее</button>
+              </div>
+            </div>
+            <div class="product-content">
+              <h3 class="product-title">Пояс меховой из шерсти</h3>
+              <p class="product-description">ворс - 100% шерсть</p>
+              <button class="add-to-cart" type="button" data-action="add" data-id="1498486363994">В корзину</button>
+            </div>
+          </article>
+
+          <article class="product-card" data-category="clothes" data-id="1501253736112" style="--delay: 60ms;">
+            <div class="product-image">
+              <img src="images/tild6431-3962-4130-b035-396465323438__img-20250705-wa0006.jpg" alt="Пояс &quot;стрейч&quot;" loading="lazy" />
+              <div class="price-tag" aria-label="Цена">6 500 ₽</div>
+              <div class="product-overlay">
+                <button class="quick-view" type="button" data-action="details" data-id="1501253736112">Подробнее</button>
+              </div>
+            </div>
+            <div class="product-content">
+              <h3 class="product-title">Пояс &quot;стрейч&quot;</h3>
+              <p class="product-description">Пояс прекрасно прогревает зону спины, защищая от сквозняков и холода. Выполняет поддерживающую функцию, снижает нагрузку на поясницу.</p>
+              <button class="add-to-cart" type="button" data-action="add" data-id="1501253736112">В корзину</button>
+            </div>
+          </article>
+
+          <article class="product-card" data-category="clothes" data-id="1497456130776" style="--delay: 120ms;">
+            <div class="product-image">
+              <img src="images/tild3164-6137-4735-a266-363235336262__photo.jpg" alt="Наколенник меховой" loading="lazy" />
+              <div class="price-tag" aria-label="Цена">4 000 ₽</div>
+              <div class="product-overlay">
+                <button class="quick-view" type="button" data-action="details" data-id="1497456130776">Подробнее</button>
+              </div>
+            </div>
+            <div class="product-content">
+              <h3 class="product-title">Наколенник меховой</h3>
+              <p class="product-description">Согревающий наколенник из стопроцентной шерсти обеспечивает сухое тепло и надежный прогрев.</p>
+              <button class="add-to-cart" type="button" data-action="add" data-id="1497456130776">В корзину</button>
+            </div>
+          </article>
+
+          <article class="product-card" data-category="clothes" data-id="1498486301712" style="--delay: 180ms;">
+            <div class="product-image">
+              <img src="images/tild6466-6565-4263-b333-626565366233__photo.jpg" alt="Наколенник &quot;стрейч&quot;" loading="lazy" />
+              <div class="price-tag" aria-label="Цена">5 000 ₽</div>
+              <div class="product-overlay">
+                <button class="quick-view" type="button" data-action="details" data-id="1498486301712">Подробнее</button>
+              </div>
+            </div>
+            <div class="product-content">
+              <h3 class="product-title">Наколенник &quot;стрейч&quot;</h3>
+              <p class="product-description">Наколенник аккуратно сжимает коленный сустав, но не пережимает кожу за счет эластичной резинки. Хорошо фиксируется на ноге.</p>
+              <button class="add-to-cart" type="button" data-action="add" data-id="1498486301712">В корзину</button>
+            </div>
+          </article>
+
+          <article class="product-card" data-category="clothes" data-id="1501256551867" style="--delay: 240ms;">
+            <div class="product-image">
+              <img src="images/tild3933-3262-4035-b431-663965346532__photo.jpg" alt="Тапочки &quot;чуни&quot;" loading="lazy" />
+              <div class="price-tag" aria-label="Цена">6 500 ₽</div>
+              <div class="product-overlay">
+                <button class="quick-view" type="button" data-action="details" data-id="1501256551867">Подробнее</button>
+              </div>
+            </div>
+            <div class="product-content">
+              <h3 class="product-title">Тапочки &quot;чуни&quot;</h3>
+              <p class="product-description">наружный и внутренний материал 100% овечья шерсть</p>
+              <button class="add-to-cart" type="button" data-action="add" data-id="1501256551867">В корзину</button>
+            </div>
+          </article>
+
+          <article class="product-card" data-category="clothes" data-id="1501168234155" style="--delay: 300ms;">
+            <div class="product-image">
+              <img src="images/tild3632-3832-4434-b739-336463363232__photo.jpg" alt="Тапочки меховые" loading="lazy" />
+              <div class="price-tag" aria-label="Цена">5 000 ₽</div>
+              <div class="product-overlay">
+                <button class="quick-view" type="button" data-action="details" data-id="1501168234155">Подробнее</button>
+              </div>
+            </div>
+            <div class="product-content">
+              <h3 class="product-title">Тапочки меховые</h3>
+              <p class="product-description">Универсальные тапочки из ворсового полотна, в котором ворс – это шерсть австралийской овцы породы меринос.</p>
+              <button class="add-to-cart" type="button" data-action="add" data-id="1501168234155">В корзину</button>
+            </div>
+          </article>
+
+          <article class="product-card" data-category="pillows" data-id="1501168201325" style="--delay: 360ms;">
+            <div class="product-image">
+              <img src="images/tild3537-3964-4433-b364-646462363863__img-20250705-wa0004.jpg" alt="Подушка &quot;MemoryForm&quot;" loading="lazy" />
+              <div class="price-tag" aria-label="Цена">16 000 ₽</div>
+              <div class="product-overlay">
+                <button class="quick-view" type="button" data-action="details" data-id="1501168201325">Подробнее</button>
+              </div>
+            </div>
+            <div class="product-content">
+              <h3 class="product-title">Подушка &quot;MemoryForm&quot;</h3>
+              <p class="product-description">Латекс. Является материалом натурального происхождения, синтезируется из каучука. Благодаря своему вспененному строению обладает высокой упругостью.</p>
+              <button class="add-to-cart" type="button" data-action="add" data-id="1501168201325">В корзину</button>
+            </div>
+          </article>
+
+          <article class="product-card" data-category="pillows" data-id="1501256529643" style="--delay: 420ms;">
+            <div class="product-image">
+              <img src="images/tild3934-6334-4239-b930-306232323839__noroot.png" alt="Наволочка меховая (чехол)" loading="lazy" />
+              <div class="price-tag" aria-label="Цена">12 000 ₽</div>
+              <div class="product-overlay">
+                <button class="quick-view" type="button" data-action="details" data-id="1501256529643">Подробнее</button>
+              </div>
+            </div>
+            <div class="product-content">
+              <h3 class="product-title">Наволочка меховая (чехол)</h3>
+              <p class="product-description">Шерсть 100%</p>
+              <button class="add-to-cart" type="button" data-action="add" data-id="1501256529643">В корзину</button>
+            </div>
+          </article>
+
+          <article class="product-card" data-category="clothes" data-id="1501257004162" style="--delay: 480ms;">
+            <div class="product-image">
+              <img src="images/tild3265-6334-4563-b466-346661316231___1.jpg" alt="Жилет меховой из шерсти" loading="lazy" />
+              <div class="price-tag" aria-label="Цена">12 500 ₽</div>
+              <div class="product-overlay">
+                <button class="quick-view" type="button" data-action="details" data-id="1501257004162">Подробнее</button>
+              </div>
+            </div>
+            <div class="product-content">
+              <h3 class="product-title">Жилет меховой из шерсти</h3>
+              <p class="product-description">Жилет О-образного силуэта. Полотно верха - облегченный искусственный мех с ворсом из шерсти мериноса.</p>
+              <button class="add-to-cart" type="button" data-action="add" data-id="1501257004162">В корзину</button>
+            </div>
+          </article>
+
+          <article class="product-card" data-category="pillows" data-id="1751815835186" style="--delay: 540ms;">
+            <div class="product-image">
+              <img src="images/tild3532-3735-4234-a434-633563303234__photo.jpg" alt="Подушка декоративная из шерсти" loading="lazy" />
+              <div class="price-tag" aria-label="Цена">6 000 ₽</div>
+              <div class="product-overlay">
+                <button class="quick-view" type="button" data-action="details" data-id="1751815835186">Подробнее</button>
+              </div>
+            </div>
+            <div class="product-content">
+              <h3 class="product-title">Подушка декоративная из шерсти</h3>
+              <p class="product-description">Милая подушка-рогалик в виде овечки изготовлена из трикотажного полотна с чистошерстяным ворсом.</p>
+              <button class="add-to-cart" type="button" data-action="add" data-id="1751815835186">В корзину</button>
+            </div>
+          </article>
+
+          <article class="product-card" data-category="pillows" data-id="1751815953443" style="--delay: 600ms;">
+            <div class="product-image">
+              <img src="images/tild3130-6366-4337-b161-643063363335__4.jpeg" alt="Подушка декоративная из шерсти" loading="lazy" />
+              <div class="price-tag" aria-label="Цена">6 000 ₽</div>
+              <div class="product-overlay">
+                <button class="quick-view" type="button" data-action="details" data-id="1751815953443">Подробнее</button>
+              </div>
+            </div>
+            <div class="product-content">
+              <h3 class="product-title">Подушка декоративная из шерсти</h3>
+              <p class="product-description">Милая подушка в виде овечки изготовлена из трикотажного полотна с чистошерстяным ворсом.</p>
+              <button class="add-to-cart" type="button" data-action="add" data-id="1751815953443">В корзину</button>
+            </div>
+          </article>
+
+          <article class="product-card" data-category="pillows" data-id="1751816141593" style="--delay: 660ms;">
+            <div class="product-image">
+              <img src="images/tild3834-3636-4135-b136-653665623834__1.jpg" alt="Подушка декоративная из шерсти" loading="lazy" />
+              <div class="price-tag" aria-label="Цена">6 000 ₽</div>
+              <div class="product-overlay">
+                <button class="quick-view" type="button" data-action="details" data-id="1751816141593">Подробнее</button>
+              </div>
+            </div>
+            <div class="product-content">
+              <h3 class="product-title">Подушка декоративная из шерсти</h3>
+              <p class="product-description">Милая подушка-косточка изготовлена из трикотажного полотна с чистошерстяным ворсом.</p>
+              <button class="add-to-cart" type="button" data-action="add" data-id="1751816141593">В корзину</button>
+            </div>
+          </article>
+
+          <article class="product-card" data-category="pillows" data-id="1751816282434" style="--delay: 720ms;">
+            <div class="product-image">
+              <img src="images/tild3763-6138-4161-a430-383532623736__2.jpg" alt="Подушка из шерсти овечка" loading="lazy" />
+              <div class="price-tag" aria-label="Цена">5 500 ₽</div>
+              <div class="product-overlay">
+                <button class="quick-view" type="button" data-action="details" data-id="1751816282434">Подробнее</button>
+              </div>
+            </div>
+            <div class="product-content">
+              <h3 class="product-title">Подушка из шерсти овечка</h3>
+              <p class="product-description">Мягкая оригинальная диванная подушечка украсит любой интерьер, подарит дому тепло и уют.</p>
+              <button class="add-to-cart" type="button" data-action="add" data-id="1751816282434">В корзину</button>
+            </div>
+          </article>
+
+          <article class="product-card" data-category="plaids" data-id="1751816487674" style="--delay: 780ms;">
+            <div class="product-image">
+              <img src="images/tild6135-3962-4865-b638-303563623464__1fec22ab-dcaa-11e2-9.jpg" alt="Одеяло облегченное" loading="lazy" />
+              <div class="price-tag" aria-label="Цена">43 000 ₽</div>
+              <div class="product-overlay">
+                <button class="quick-view" type="button" data-action="details" data-id="1751816487674">Подробнее</button>
+              </div>
+            </div>
+            <div class="product-content">
+              <h3 class="product-title">Одеяло облегченное</h3>
+              <p class="product-description">Облегченное одеяло из однотонной неокрашенной шерсти овцы породы меринос на основе из итальянского трикотажного полотна.</p>
+              <button class="add-to-cart" type="button" data-action="add" data-id="1751816487674">В корзину</button>
+            </div>
+          </article>
+
+          <article class="product-card" data-category="plaids" data-id="1751816651609" style="--delay: 840ms;">
+            <div class="product-image">
+              <img src="images/tild6261-3639-4466-b035-323032653736__f8b09a69-9041-11ef-b.jpg" alt="Плед из шерсти" loading="lazy" />
+              <div class="price-tag" aria-label="Цена">18 000 ₽</div>
+              <div class="product-overlay">
+                <button class="quick-view" type="button" data-action="details" data-id="1751816651609">Подробнее</button>
+              </div>
+            </div>
+            <div class="product-content">
+              <h3 class="product-title">Плед из шерсти</h3>
+              <p class="product-description">Премиальный плед из стопроцентной шерсти тонкорунной овцы породы меринос.</p>
+              <button class="add-to-cart" type="button" data-action="add" data-id="1751816651609">В корзину</button>
+            </div>
+          </article>
+        </div>
+
+        <div class="catalog-divider" aria-hidden="true"></div>
+
+        <footer class="catalog-footer">
+          <p class="catalog-footer__note">Наведите на карточку, чтобы увидеть «Подробнее».</p>
+          <p class="catalog-footer__note">Кнопки и корзина — заглушки, готовы к интеграции.</p>
+        </footer>
+      </div>
+    </section>
+  </main>
+
+  <dialog class="details" id="detailsDialog" aria-labelledby="detailsTitle">
+    <div class="details__card">
+      <div class="details__header">
+        <h2 class="details__title" id="detailsTitle">Подробнее</h2>
+        <button class="details__close" type="button" data-action="close" aria-label="Закрыть">×</button>
+      </div>
+      <div class="details__body" id="detailsBody">
+        <p class="details__text">Здесь будет описание товара и характеристики (заглушка).</p>
+      </div>
+      <div class="details__footer">
+        <button class="details__btn" type="button" data-action="close">Понятно</button>
+      </div>
+    </div>
+  </dialog>
+</body>
+</html>
