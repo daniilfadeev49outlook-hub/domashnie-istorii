@@ -167,6 +167,39 @@ body.is-rebuilt-home .site-nav__link{
   font-size:12px;
   padding:10px 4px;
 }
+
+@media (max-width:960px){
+  body.is-rebuilt-home .site-header__inner,
+  body.is-rebuilt-secondary .site-header__inner{
+    padding:12px 14px;
+    gap:14px;
+  }
+
+  body.is-rebuilt-home .site-logo,
+  body.is-rebuilt-secondary .site-logo{font-size:20px;}
+
+  body.is-rebuilt-home .site-nav,
+  body.is-rebuilt-secondary .site-nav{gap:14px;}
+}
+
+@media (max-width:640px){
+  body.is-rebuilt-home .site-header__inner,
+  body.is-rebuilt-secondary .site-header__inner{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+
+  body.is-rebuilt-home .site-nav,
+  body.is-rebuilt-secondary .site-nav{
+    width:100%;
+    justify-content:flex-start;
+  }
+
+  body.is-rebuilt-home .site-nav__link,
+  body.is-rebuilt-secondary .site-nav__link{
+    padding:8px 4px;
+  }
+}
 body.is-rebuilt-secondary .site-nav__link{
   position:relative;
   text-decoration:none;
@@ -317,6 +350,15 @@ body.is-rebuilt-home .hero__image{
   body.is-rebuilt-home .hero__title{font-size:44px;}
 }
 
+@media (max-width:640px){
+  body.is-rebuilt-home .hero{padding:34px 0 14px;}
+  body.is-rebuilt-home .hero__inner{gap:18px;}
+  body.is-rebuilt-home .hero__title{font-size:36px;}
+  body.is-rebuilt-home .hero__subtitle{font-size:16px;}
+  body.is-rebuilt-home .hero__actions{flex-direction:column;}
+  body.is-rebuilt-home .hero__button{width:100%;}
+}
+
 /* Hide old exported cover/menu on rebuilt home to avoid duplicates */
 body.is-rebuilt-home #rec1149664946,
 body.is-rebuilt-home #rec1147829631,
@@ -378,6 +420,11 @@ body.is-rebuilt-home #rec1147674036{display:none !important;}
 #rec1147775986 .t229__centerside{width:100%; display:flex; justify-content:center;}
 #rec1147775986 .t-menu__list{display:flex; align-items:center; justify-content:center; gap:26px;}
 #rec1147775986 .t229__list_item{padding:0 !important;}
+
+@media (max-width:640px){
+  #rec1147775986 .t-menu__list{gap:14px; flex-wrap:wrap; padding:0 10px;}
+  #rec1147775986 .t229__list_item .t-menu__link-item{padding:10px 8px;}
+}
 #rec1147775986 .t229__list_item .t-menu__link-item{
   font-family:'Open Sans', system-ui, -apple-system, Segoe UI, Arial, sans-serif !important;
   font-size:12px !important;
