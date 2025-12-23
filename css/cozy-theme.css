@@ -52,6 +52,13 @@ body.is-rebuilt-secondary .t-records{
   overflow-x:hidden;
 }
 
+body.is-rebuilt-home,
+body.is-rebuilt-home .t-records,
+body.is-rebuilt-home #tilda-root,
+body.is-rebuilt-home .t-rec{
+  max-width:100%;
+}
+
 body.is-rebuilt-home #tilda-root .t396__artboard,
 body.is-rebuilt-secondary #tilda-root .t396__artboard{
   overflow:hidden;
