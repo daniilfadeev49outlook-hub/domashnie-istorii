@@ -936,6 +936,56 @@ body.is-rebuilt-home #rec1147674036{display:none !important;}
 #rec1147778976 .t-text,
 #rec1147778976 a{color:rgba(255,245,232,.92) !important;}
 
+/* ===== Mobile-first breakpoints (template) =====
+   This section is a scaffold to evolve styles mobile-first.
+   It is intentionally low-risk: mostly variables + examples.
+   Use `min-width` to progressively enhance layout for larger screens.
+
+   Suggested breakpoints:
+   - 480px  : large phones
+   - 768px  : tablets
+   - 1024px : small laptops
+   - 1200px : wide desktops
+
+   How to use:
+   1) Put default (mobile) rules above.
+   2) Add only what changes at each breakpoint below.
+*/
+
+/* Base (mobile-first): 320px+ */
+:root{
+  --cozy-gutter:14px;
+  --cozy-container:1120px;
+  --cozy-title-size:clamp(32px, 7vw, 44px);
+  --cozy-text-size:clamp(15px, 3.4vw, 18px);
+}
+
+/* Example hook (opt-in): uncomment to unify gutters using variables.
+body.is-rebuilt-home .site-header__inner,
+body.is-rebuilt-home .hero__inner{
+  padding-left:var(--cozy-gutter);
+  padding-right:var(--cozy-gutter);
+}
+*/
+
+@media (min-width:480px){
+  :root{--cozy-gutter:18px;}
+}
+
+@media (min-width:768px){
+  :root{--cozy-gutter:20px;}
+  /* Example: switch to 2-column layouts where appropriate */
+}
+
+@media (min-width:1024px){
+  :root{--cozy-gutter:24px;}
+  /* Example: increase max container width, restore denser grids */
+}
+
+@media (min-width:1200px){
+  :root{--cozy-gutter:28px;}
+}
+
 /* ===== Reduced motion ===== */
 @media (prefers-reduced-motion: reduce){
   html{scroll-behavior:auto;}
