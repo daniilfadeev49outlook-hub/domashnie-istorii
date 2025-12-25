@@ -385,6 +385,19 @@ body.is-rebuilt-home #rec1169935511 .t1186__card{
   color:var(--cozy-ink);
 }
 
+/* Reviews section title: add outline */
+body.is-rebuilt-home #rec1169935511 .t-section__descr{
+  display:inline-block;
+  padding:10px 16px;
+  border:1px solid var(--cozy-border);
+  border-radius:999px;
+}
+
+/* Reviews controls: make arrows face opposite directions */
+body.is-rebuilt-home #rec1169935511 .t1186__control_right svg{
+  transform:rotate(180deg);
+}
+
 /* Glow layer (avoid color-mix for better browser support) */
 body.is-rebuilt-home #rec1169935511 .t1186__card::before{
   content:"";
