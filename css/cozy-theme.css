@@ -380,10 +380,23 @@ body.is-rebuilt-home #rec1169935511 .t1186__card{
   background:
     linear-gradient(135deg, var(--cozy-mustard), var(--cozy-paper)) border-box,
     var(--cozy-paper) padding-box;
-  box-shadow:
-    var(--cozy-shadow-soft),
-    0 0 26px color-mix(in srgb, var(--cozy-mustard) 32%, transparent);
+  box-shadow:var(--cozy-shadow-soft);
+  overflow:visible;
   color:var(--cozy-ink);
+}
+
+/* Glow layer (avoid color-mix for better browser support) */
+body.is-rebuilt-home #rec1169935511 .t1186__card::before{
+  content:"";
+  position:absolute;
+  inset:-10px;
+  border-radius:inherit;
+  z-index:-1;
+  opacity:.30;
+  background:
+    radial-gradient(circle at 30% 20%, var(--cozy-mustard) 0%, transparent 62%),
+    radial-gradient(circle at 70% 75%, var(--cozy-paper) 0%, transparent 60%);
+  filter:blur(26px);
 }
 
 body.is-rebuilt-home #rec1169935511 .t1186__title,
@@ -394,10 +407,10 @@ body.is-rebuilt-home #rec1169935511 .t1186__text{
 /* CircularText (non-React, static implementation) */
 body.is-rebuilt-home .circular-text{
   position:absolute;
-  top:-10px;
-  right:-10px;
-  width:160px;
-  height:160px;
+  top:18px;
+  right:-64px;
+  width:240px;
+  height:240px;
   opacity:.92;
 }
 
@@ -425,20 +438,21 @@ body.is-rebuilt-home .circular-text[data-hover="speedUp"]:hover .circular-text__
 
 @media (max-width:640px){
   body.is-rebuilt-home .circular-text{
-    width:132px;
-    height:132px;
-    top:-6px;
-    right:-6px;
+    width:200px;
+    height:200px;
+    top:10px;
+    right:-50px;
   }
   body.is-rebuilt-home .circular-text__text{font-size:13px;}
 }
 
 @media (max-width:480px){
   body.is-rebuilt-home .circular-text{
-    width:120px;
-    height:120px;
-    top:-4px;
-    right:-4px;
+    width:180px;
+    height:180px;
+    top:8px;
+    right:-46px;
+    opacity:.85;
   }
 }
 
