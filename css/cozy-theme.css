@@ -31,6 +31,41 @@
 
 html{scroll-behavior:smooth;}
 html, body{overflow-x:hidden;}
+@supports (overflow: clip){
+  html, body{overflow-x:clip;}
+}
+
+/* RWD safety: keep padding/borders from expanding widths and prevent common overflow sources */
+body.t-body,
+body.t-body *,
+body.t-body *::before,
+body.t-body *::after{
+  box-sizing:border-box;
+}
+
+img, svg, video, canvas{
+  max-width:100%;
+  height:auto;
+}
+
+iframe{
+  max-width:100%;
+}
+
+table{
+  max-width:100%;
+}
+
+/* If a table/code block is wider than the screen, scroll it instead of breaking the whole layout */
+.t-text table,
+.t-descr table,
+.t-text pre,
+.t-descr pre{
+  display:block;
+  max-width:100%;
+  overflow-x:auto;
+  -webkit-overflow-scrolling:touch;
+}
 body.t-body, .t-records{background-color:var(--cozy-bg) !important;}
 body.t-body{
   color:var(--cozy-ink);
@@ -96,6 +131,9 @@ a{color:inherit;}
 .t-cover .t-cover__wrapper *{
   color:var(--cozy-cover-text) !important;
 }
+
+/* Tilda cover wrapper sometimes uses a fixed width (e.g. 1200px) which can create horizontal overflow in edge cases */
+.t-cover__wrapper{width:100% !important;}
 
 /* ===== Rebuilt home (custom header + hero) ===== */
 .sr-only{
@@ -325,13 +363,13 @@ body.is-rebuilt-home .hero__title{
   font-weight:700;
   letter-spacing:.01em;
   margin:0 0 10px;
-  font-size:54px;
+  font-size:clamp(34px, 5.2vw, 54px);
   line-height:1.05;
 }
 body.is-rebuilt-home .hero__subtitle{
   margin:0 0 18px;
   color:var(--cozy-ink-soft);
-  font-size:18px;
+  font-size:clamp(15px, 2.1vw, 18px);
   line-height:1.5;
 }
 body.is-rebuilt-home .hero__actions{
@@ -363,6 +401,7 @@ body.is-rebuilt-home .hero__media{
   display:flex;
   justify-content:flex-end;
   position:relative;
+  overflow-x:hidden;
 }
 body.is-rebuilt-home .hero__image{
   width:100%;
@@ -469,9 +508,9 @@ body.is-rebuilt-home #rec1169935511 .t1186__text{
 body.is-rebuilt-home .circular-text{
   position:absolute;
   top:18px;
-  right:-300px;
-  width:240px;
-  height:240px;
+  right:clamp(-18px, -2.4vw, 0px);
+  width:clamp(160px, 22vw, 240px);
+  height:clamp(160px, 22vw, 240px);
   opacity:.92;
 }
 
@@ -512,20 +551,16 @@ body.is-rebuilt-home .circular-text[data-hover="speedUp"]:hover .circular-text__
 
 @media (max-width:640px){
   body.is-rebuilt-home .circular-text{
-    width:200px;
-    height:200px;
     top:10px;
-    right:-246px;
+    right:clamp(-14px, -4vw, 0px);
   }
   body.is-rebuilt-home .circular-text__text{font-size:13px;}
 }
 
 @media (max-width:480px){
   body.is-rebuilt-home .circular-text{
-    width:180px;
-    height:180px;
     top:8px;
-    right:-221px;
+    right:clamp(-12px, -5vw, 0px);
     opacity:.85;
   }
 }
@@ -566,13 +601,6 @@ body.is-rebuilt-home .circular-text[data-hover="speedUp"]:hover .circular-text__
 }
 
 @media (max-width:480px){
-  /* Tilda grid uses content-box globally; on small screens it can cause padding to push layout sideways.
-     Normalize sizing for the rebuilt home scope. */
-  body.is-rebuilt-home,
-  body.is-rebuilt-home *{
-    box-sizing:border-box;
-  }
-
   /* Global container centering + comfortable gutters */
   body.is-rebuilt-home #tilda-root,
   body.is-rebuilt-home .t-records{
