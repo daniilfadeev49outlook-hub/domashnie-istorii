@@ -686,22 +686,61 @@ body.is-rebuilt-home .circular-text[data-hover="speedUp"]:hover .circular-text__
   /* Nudge only the requested blocks a bit to the right */
   body.is-rebuilt-home #rec1147674041 .t-col,
   body.is-rebuilt-home #rec1147674056 .t-col,
-  body.is-rebuilt-home #rec1147674066 .t-col,
   body.is-rebuilt-home #rec1324703161 .t-col{
     /* Asymmetric gutters: shift content slightly to the right */
     padding-left:18px !important;
     padding-right:12px !important;
   }
 
+  /* Forms: keep strictly centered (symmetric gutters) */
+  body.is-rebuilt-home #rec1147674066 .t-col{
+    padding-left:10px !important;
+    padding-right:10px !important;
+    float:none !important;
+    width:100% !important;
+    max-width:none !important;
+    margin-left:auto !important;
+    margin-right:auto !important;
+  }
+  body.is-rebuilt-home #rec1147674066 .t-prefix_3{
+    padding-left:0 !important;
+    margin-left:0 !important;
+  }
+  body.is-rebuilt-home #rec1147674066 .t-input-block,
+  body.is-rebuilt-home #rec1147674066 .t-input,
+  body.is-rebuilt-home #rec1147674066 .t-form__submit,
+  body.is-rebuilt-home #rec1147674066 .t-submit{
+    width:100% !important;
+    max-width:none !important;
+  }
+
   /* Review form: the input + submit were shifted to the right — bring them back to center */
   body.is-rebuilt-home #rec1169926406 .t-col{
     padding-left:10px !important;
     padding-right:10px !important;
+    float:none !important;
+    width:100% !important;
+    max-width:none !important;
+    margin-left:auto !important;
+    margin-right:auto !important;
   }
   body.is-rebuilt-home #rec1169926406 .t1045__input-wrapper{
     float:none !important;
     margin-left:auto !important;
     margin-right:auto !important;
+    width:100% !important;
+    max-width:none !important;
+  }
+  body.is-rebuilt-home #rec1169926406 .t-prefix_2{
+    padding-left:0 !important;
+    margin-left:0 !important;
+  }
+  body.is-rebuilt-home #rec1169926406 .t-input-block,
+  body.is-rebuilt-home #rec1169926406 .t-input,
+  body.is-rebuilt-home #rec1169926406 .t-form__submit,
+  body.is-rebuilt-home #rec1169926406 .t-submit{
+    width:100% !important;
+    max-width:none !important;
   }
 
   /* Tilda typography: keep readable on small screens */
