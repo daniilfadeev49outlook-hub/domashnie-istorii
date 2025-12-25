@@ -1076,6 +1076,69 @@ body.is-rebuilt-home .hero__inner{
   :root{--cozy-gutter:28px;}
 }
 
+/* ===== Header collapse (final overrides) =====
+   NOTE: These rules intentionally live near the end of the file
+   to win over earlier mobile media queries.
+*/
+body.is-header-collapsed{
+  --cozy-header-h:52px;
+}
+
+body.is-header-collapsed.is-rebuilt-home .site-header__inner,
+body.is-header-collapsed.is-rebuilt-secondary .site-header__inner{
+  padding-top:8px !important;
+  padding-bottom:8px !important;
+}
+
+body.is-header-collapsed.is-rebuilt-home .site-logo,
+body.is-header-collapsed.is-rebuilt-secondary .site-logo{
+  font-size:20px !important;
+}
+
+body.is-header-collapsed.is-rebuilt-home .site-nav__link,
+body.is-header-collapsed.is-rebuilt-secondary .site-nav__link{
+  padding-top:8px !important;
+  padding-bottom:8px !important;
+}
+
+@media (max-width:640px){
+  /* Mobile: compact vertical nav into a tight wrapped row */
+  body.is-header-collapsed.is-rebuilt-home .site-header__inner,
+  body.is-header-collapsed.is-rebuilt-secondary .site-header__inner{
+    flex-direction:row !important;
+    align-items:center !important;
+    gap:10px !important;
+  }
+
+  body.is-header-collapsed.is-rebuilt-home .site-nav,
+  body.is-header-collapsed.is-rebuilt-secondary .site-nav{
+    width:auto !important;
+    flex-direction:row !important;
+    flex-wrap:wrap !important;
+    justify-content:flex-end !important;
+    gap:8px !important;
+  }
+
+  body.is-header-collapsed.is-rebuilt-home .site-nav__link,
+  body.is-header-collapsed.is-rebuilt-secondary .site-nav__link{
+    width:auto !important;
+    text-align:left !important;
+    padding:6px 6px !important;
+    font-size:11px !important;
+  }
+
+  body.is-header-collapsed.is-rebuilt-home .site-logo,
+  body.is-header-collapsed.is-rebuilt-secondary .site-logo{
+    font-size:18px !important;
+  }
+}
+
+/* Legacy Tilda headers: reduce container heights too */
+body.is-header-collapsed #rec1147775986 .t229__maincontainer,
+body.is-header-collapsed #rec1147775986 #nav1147775986{
+  height:var(--cozy-header-h) !important;
+}
+
 /* ===== Reduced motion ===== */
 @media (prefers-reduced-motion: reduce){
   html{scroll-behavior:auto;}
