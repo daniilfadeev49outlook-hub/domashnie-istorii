@@ -441,10 +441,20 @@ body.is-rebuilt-home .hero__image{
 
   /* Hero typography per requirement */
   body.is-rebuilt-home .hero{padding:28px 0 10px;}
-  body.is-rebuilt-home .hero__inner{padding:0 10px;}
+  body.is-rebuilt-home .hero__inner{padding:0 14px;}
   body.is-rebuilt-home .hero__title{font-size:1.8rem;}
   body.is-rebuilt-home .hero__subtitle{font-size:1rem;}
   body.is-rebuilt-home .hero__button{width:min(100%, 320px);}
+
+  /* Nudge only the requested blocks a bit to the right */
+  body.is-rebuilt-home #rec1147674041 .t-col,
+  body.is-rebuilt-home #rec1147674056 .t-col,
+  body.is-rebuilt-home #rec1147674066 .t-col,
+  body.is-rebuilt-home #rec1169926406 .t-col,
+  body.is-rebuilt-home #rec1324703161 .t-col{
+    padding-left:14px !important;
+    padding-right:14px !important;
+  }
 
   /* Tilda typography: keep readable on small screens */
   body.is-rebuilt-home #tilda-root .t-title_xl{font-size:1.8rem !important; line-height:1.1 !important;}
