@@ -389,53 +389,53 @@ body.is-rebuilt-home #rec1169935511 .t1186__item{
   overflow:visible !important;
 }
 
-/* Animated glowing border like the provided ElectricBorder style */
-/* Moving glowing perimeter border */
-body.is-rebuilt-home #rec1169935511 .t1186__card::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  padding:2px;
-  border-radius:inherit;
-  background:conic-gradient(
-    from 0deg,
-    var(--cozy-paper),
-    var(--cozy-mustard),
-    var(--cozy-paper),
-    var(--cozy-mustard),
-    var(--cozy-paper)
-  );
-  animation:cozy-electric-rotate 4.8s linear infinite;
-  /* show only a ring */
-  -webkit-mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-  -webkit-mask-composite:xor;
-  mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-  mask-composite:exclude;
-  pointer-events:none;
+/* Animated moving glowing perimeter border (reliable across browsers) */
+@property --cozy-border-angle{
+  syntax:'<angle>';
+  inherits:false;
+  initial-value:0deg;
+}
+
+body.is-rebuilt-home #rec1169935511 .t1186__card{
+  z-index:0;
+  border:2px solid transparent;
+  background:
+    linear-gradient(var(--cozy-paper), var(--cozy-paper)) padding-box,
+    conic-gradient(
+      from var(--cozy-border-angle),
+      var(--cozy-paper),
+      var(--cozy-mustard),
+      var(--cozy-paper),
+      var(--cozy-mustard),
+      var(--cozy-paper)
+    ) border-box;
+  animation:cozy-border-spin 4.6s linear infinite;
 }
 
 body.is-rebuilt-home #rec1169935511 .t1186__card::after{
   content:"";
   position:absolute;
-  inset:-14px;
+  inset:-16px;
   border-radius:inherit;
   z-index:-1;
-  opacity:.65;
+  opacity:.8;
   background:conic-gradient(
-    from 0deg,
+    from var(--cozy-border-angle),
     var(--cozy-mustard),
     var(--cozy-paper),
     var(--cozy-mustard)
   );
-  filter:blur(20px);
-  animation:cozy-electric-rotate 4.8s linear infinite;
+  filter:blur(22px);
   pointer-events:none;
 }
 
+body.is-rebuilt-home #rec1169935511 .t1186__card:hover{
+  animation-duration:3.2s;
+}
+
 body.is-rebuilt-home #rec1169935511 .t1186__card:hover::after{
-  opacity:.8;
-  filter:blur(18px);
-  animation-duration:3.4s;
+  opacity:.95;
+  filter:blur(20px);
 }
 
 /* Reviews section title: add outline */
@@ -538,6 +538,10 @@ body.is-rebuilt-home .circular-text[data-hover="speedUp"]:hover .circular-text__
 @keyframes cozy-electric-rotate{
   from{transform:rotate(0deg);}
   to{transform:rotate(360deg);}
+}
+
+@keyframes cozy-border-spin{
+  to{--cozy-border-angle:360deg;}
 }
 
 @keyframes cozy-circular-spin{
