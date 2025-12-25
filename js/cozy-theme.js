@@ -5,6 +5,39 @@
 (function(){
   'use strict';
 
+  function initHeaderCollapse(){
+    var body = document.body;
+    if (!body) return;
+
+    // Only enable if a header-like block exists on the page.
+    var hasHeader = !!(
+      document.querySelector('.site-header') ||
+      document.querySelector('#rec1147829631') ||
+      document.querySelector('#nav1147775986') ||
+      document.querySelector('#rec1147775986')
+    );
+    if (!hasHeader) return;
+
+    var lastState = null;
+    var ticking = false;
+
+    function update(){
+      ticking = false;
+      var collapsed = (window.pageYOffset || 0) > 16;
+      if (collapsed === lastState) return;
+      body.classList.toggle('is-header-collapsed', collapsed);
+      lastState = collapsed;
+    }
+
+    window.addEventListener('scroll', function(){
+      if (ticking) return;
+      ticking = true;
+      window.requestAnimationFrame(update);
+    }, {passive:true});
+
+    update();
+  }
+
   function prefersReducedMotion(){
     return window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   }
@@ -94,11 +127,14 @@
   document.addEventListener('DOMContentLoaded', function(){
     bindAnchors();
     revealOnScroll();
+    initHeaderCollapse();
   });
 
   document.addEventListener('cozy:tildaLoaded', function(){
     // Newly injected product cards need reveal observer
     revealOnScroll();
+    // In case header comes from injected Tilda blocks
+    initHeaderCollapse();
     // If we opened with a hash, re-apply offset once targets exist
     if (location.hash){
       setTimeout(function(){ smoothScrollTo(location.hash); }, 50);

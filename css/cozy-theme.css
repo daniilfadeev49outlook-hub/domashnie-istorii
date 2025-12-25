@@ -157,6 +157,37 @@ body.is-rebuilt-home .site-header{
   border-bottom:1px solid rgba(26,25,23,.12);
 }
 
+/* Collapse header on scroll (JS toggles body.is-header-collapsed) */
+body.is-rebuilt-home .site-header__inner,
+body.is-rebuilt-secondary .site-header__inner,
+body.is-rebuilt-home .site-logo,
+body.is-rebuilt-secondary .site-logo,
+body.is-rebuilt-home .site-nav__link,
+body.is-rebuilt-secondary .site-nav__link{
+  transition:padding .22s ease, font-size .22s ease, transform .22s ease;
+}
+
+body.is-header-collapsed{
+  --cozy-header-h:52px;
+}
+
+body.is-header-collapsed.is-rebuilt-home .site-header__inner,
+body.is-header-collapsed.is-rebuilt-secondary .site-header__inner{
+  padding-top:8px;
+  padding-bottom:8px;
+}
+
+body.is-header-collapsed.is-rebuilt-home .site-logo,
+body.is-header-collapsed.is-rebuilt-secondary .site-logo{
+  font-size:20px;
+}
+
+body.is-header-collapsed.is-rebuilt-home .site-nav__link,
+body.is-header-collapsed.is-rebuilt-secondary .site-nav__link{
+  padding-top:8px;
+  padding-bottom:8px;
+}
+
 /* Home: hide exported Tilda store/catalog blocks (we use catalog.html instead) */
 body.is-rebuilt-home #rec1147674046,
 body.is-rebuilt-home #rec1147674086,
@@ -656,11 +687,21 @@ body.is-rebuilt-home .circular-text[data-hover="speedUp"]:hover .circular-text__
   body.is-rebuilt-home #rec1147674041 .t-col,
   body.is-rebuilt-home #rec1147674056 .t-col,
   body.is-rebuilt-home #rec1147674066 .t-col,
-  body.is-rebuilt-home #rec1169926406 .t-col,
   body.is-rebuilt-home #rec1324703161 .t-col{
     /* Asymmetric gutters: shift content slightly to the right */
     padding-left:18px !important;
     padding-right:12px !important;
+  }
+
+  /* Review form: the input + submit were shifted to the right — bring them back to center */
+  body.is-rebuilt-home #rec1169926406 .t-col{
+    padding-left:10px !important;
+    padding-right:10px !important;
+  }
+  body.is-rebuilt-home #rec1169926406 .t1045__input-wrapper{
+    float:none !important;
+    margin-left:auto !important;
+    margin-right:auto !important;
   }
 
   /* Tilda typography: keep readable on small screens */
@@ -760,6 +801,16 @@ body.is-rebuilt-home #rec1147674036{display:none !important;}
   font-weight:600;
   color:var(--cozy-ink) !important;
   position:relative;
+}
+
+/* Also collapse the legacy Tilda header block if it’s used on some pages */
+body.is-header-collapsed #rec1147829631 .tn-atom a{
+  height:32px;
+  padding:8px 14px;
+}
+
+body.is-header-collapsed #rec1147775986 .t229__list_item .t-menu__link-item{
+  padding:8px 6px;
 }
 #rec1147829631 .tn-atom a::after{
   content:"";
