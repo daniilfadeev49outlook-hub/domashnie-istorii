@@ -387,6 +387,108 @@ body.is-rebuilt-home .hero__image{
   body.is-rebuilt-home .hero__media{justify-content:center;}
 }
 
+@media (max-width:480px){
+  /* Global container centering + comfortable gutters */
+  body.is-rebuilt-home #tilda-root,
+  body.is-rebuilt-home .t-records{
+    margin:0 auto;
+    max-width:100%;
+  }
+
+  body.is-rebuilt-home #tilda-root .t-container,
+  body.is-rebuilt-home #tilda-root .t-section__container{
+    max-width:100% !important;
+    padding-left:16px !important;
+    padding-right:16px !important;
+    margin-left:auto !important;
+    margin-right:auto !important;
+  }
+
+  /* Images: always responsive */
+  body.is-rebuilt-home .hero img,
+  body.is-rebuilt-home #tilda-root img{
+    max-width:100%;
+    height:auto;
+  }
+
+  /* Mobile nav: switch to vertical list (no hamburger, per spec “or vertical”) */
+  body.is-rebuilt-home .site-header__inner{
+    padding:10px 14px;
+  }
+  body.is-rebuilt-home .site-nav{
+    flex-direction:column;
+    align-items:center;
+    gap:6px;
+  }
+  body.is-rebuilt-home .site-nav__link{
+    width:100%;
+    text-align:center;
+    padding:10px 0;
+  }
+
+  /* Hero typography per requirement */
+  body.is-rebuilt-home .hero{padding:28px 0 10px;}
+  body.is-rebuilt-home .hero__inner{padding:0 16px;}
+  body.is-rebuilt-home .hero__title{font-size:1.8rem;}
+  body.is-rebuilt-home .hero__subtitle{font-size:1rem;}
+  body.is-rebuilt-home .hero__button{width:min(100%, 320px);}
+
+  /* Tilda typography: keep readable on small screens */
+  body.is-rebuilt-home #tilda-root .t-title_xl{font-size:1.8rem !important; line-height:1.1 !important;}
+  body.is-rebuilt-home #tilda-root .t-title_lg{font-size:1.6rem !important; line-height:1.15 !important;}
+  body.is-rebuilt-home #tilda-root .t-title_md{font-size:1.4rem !important; line-height:1.2 !important;}
+  body.is-rebuilt-home #tilda-root .t-descr,
+  body.is-rebuilt-home #tilda-root .t-text{font-size:1rem !important; line-height:1.6 !important;}
+  body.is-rebuilt-home #tilda-root .t-descr_xxxl{font-size:1.15rem !important;}
+
+  /* Reduce overly large vertical paddings from inline styles/classes */
+  body.is-rebuilt-home #tilda-root .t-rec_pt_150{padding-top:90px !important;}
+  body.is-rebuilt-home #tilda-root .t-rec_pb_150{padding-bottom:90px !important;}
+  body.is-rebuilt-home #tilda-root .t-rec_pt_135{padding-top:80px !important;}
+  body.is-rebuilt-home #tilda-root .t-rec_pb_135{padding-bottom:80px !important;}
+  body.is-rebuilt-home #tilda-root .t-rec_pt_120{padding-top:76px !important;}
+  body.is-rebuilt-home #tilda-root .t-rec_pb_90{padding-bottom:70px !important;}
+
+  /* Remove desktop column offsets on mobile (prefixes) */
+  body.is-rebuilt-home #tilda-root .t-prefix_2,
+  body.is-rebuilt-home #tilda-root .t-prefix_3,
+  body.is-rebuilt-home #tilda-root .t-prefix_4{
+    margin-left:0 !important;
+  }
+
+  /* t1066: replace table-like layout with a single column */
+  body.is-rebuilt-home #tilda-root .t1066__flex-wrapper{
+    display:flex !important;
+    flex-direction:column !important;
+    gap:22px !important;
+    align-items:stretch !important;
+  }
+  body.is-rebuilt-home #tilda-root .t1066__box-text,
+  body.is-rebuilt-home #tilda-root .t1066__box-img,
+  body.is-rebuilt-home #tilda-root .t1066__box-img-mobile{
+    width:100% !important;
+    max-width:none !important;
+  }
+  body.is-rebuilt-home #tilda-root .t1066__tablewrapper,
+  body.is-rebuilt-home #tilda-root .t1066__cell,
+  body.is-rebuilt-home #tilda-root .t1066__list{
+    display:block !important;
+    width:100% !important;
+  }
+  body.is-rebuilt-home #tilda-root .t1066__textwrapper{
+    text-align:center;
+  }
+
+  /* Forms: make inputs full-width and centered */
+  body.is-rebuilt-home #tilda-root .t1045__input-wrapper{
+    width:100% !important;
+    max-width:none !important;
+  }
+  body.is-rebuilt-home #tilda-root .t-form__submit{
+    width:100% !important;
+  }
+}
+
 /* Hide old exported cover/menu on rebuilt home to avoid duplicates */
 body.is-rebuilt-home #rec1149664946,
 body.is-rebuilt-home #rec1147829631,
