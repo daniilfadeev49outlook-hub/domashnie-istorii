@@ -376,10 +376,7 @@ body.is-rebuilt-home .hero__image{
 body.is-rebuilt-home #rec1169935511 .t1186__card{
   position:relative;
   border-radius:calc(var(--cozy-radius) - 2px);
-  border:2px solid transparent;
-  background:
-    linear-gradient(135deg, var(--cozy-mustard), var(--cozy-paper)) border-box,
-    var(--cozy-paper) padding-box;
+  background:var(--cozy-paper);
   box-shadow:var(--cozy-shadow-soft);
   overflow:visible;
   color:var(--cozy-ink);
@@ -393,28 +390,52 @@ body.is-rebuilt-home #rec1169935511 .t1186__item{
 }
 
 /* Animated glowing border like the provided ElectricBorder style */
+/* Moving glowing perimeter border */
+body.is-rebuilt-home #rec1169935511 .t1186__card::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  padding:2px;
+  border-radius:inherit;
+  background:conic-gradient(
+    from 0deg,
+    var(--cozy-paper),
+    var(--cozy-mustard),
+    var(--cozy-paper),
+    var(--cozy-mustard),
+    var(--cozy-paper)
+  );
+  animation:cozy-electric-rotate 4.8s linear infinite;
+  /* show only a ring */
+  -webkit-mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite:xor;
+  mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask-composite:exclude;
+  pointer-events:none;
+}
+
 body.is-rebuilt-home #rec1169935511 .t1186__card::after{
   content:"";
   position:absolute;
-  inset:-10px;
+  inset:-14px;
   border-radius:inherit;
   z-index:-1;
-  opacity:.55;
+  opacity:.65;
   background:conic-gradient(
     from 0deg,
     var(--cozy-mustard),
-    var(--cozy-cover-text),
     var(--cozy-paper),
     var(--cozy-mustard)
   );
-  filter:blur(16px);
-  animation:cozy-electric-rotate 6s linear infinite;
+  filter:blur(20px);
+  animation:cozy-electric-rotate 4.8s linear infinite;
+  pointer-events:none;
 }
 
 body.is-rebuilt-home #rec1169935511 .t1186__card:hover::after{
-  opacity:.72;
-  filter:blur(14px);
-  animation-duration:3.8s;
+  opacity:.8;
+  filter:blur(18px);
+  animation-duration:3.4s;
 }
 
 /* Reviews section title: add outline */
@@ -453,7 +474,7 @@ body.is-rebuilt-home #rec1169935511 .t1186__text{
 body.is-rebuilt-home .circular-text{
   position:absolute;
   top:18px;
-  right:-120px;
+  right:-300px;
   width:240px;
   height:240px;
   opacity:.92;
@@ -499,7 +520,7 @@ body.is-rebuilt-home .circular-text[data-hover="speedUp"]:hover .circular-text__
     width:200px;
     height:200px;
     top:10px;
-    right:-96px;
+    right:-246px;
   }
   body.is-rebuilt-home .circular-text__text{font-size:13px;}
 }
@@ -509,7 +530,7 @@ body.is-rebuilt-home .circular-text[data-hover="speedUp"]:hover .circular-text__
     width:180px;
     height:180px;
     top:8px;
-    right:-86px;
+    right:-221px;
     opacity:.85;
   }
 }
