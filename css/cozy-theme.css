@@ -388,6 +388,13 @@ body.is-rebuilt-home .hero__image{
 }
 
 @media (max-width:480px){
+  /* Tilda grid uses content-box globally; on small screens it can cause padding to push layout sideways.
+     Normalize sizing for the rebuilt home scope. */
+  body.is-rebuilt-home,
+  body.is-rebuilt-home *{
+    box-sizing:border-box;
+  }
+
   /* Global container centering + comfortable gutters */
   body.is-rebuilt-home #tilda-root,
   body.is-rebuilt-home .t-records{
@@ -398,10 +405,16 @@ body.is-rebuilt-home .hero__image{
   body.is-rebuilt-home #tilda-root .t-container,
   body.is-rebuilt-home #tilda-root .t-section__container{
     max-width:100% !important;
-    padding-left:16px !important;
-    padding-right:16px !important;
+    padding-left:0 !important;
+    padding-right:0 !important;
     margin-left:auto !important;
     margin-right:auto !important;
+  }
+
+  /* Main mobile gutter: control it via columns (Tilda uses 20px by default) */
+  body.is-rebuilt-home #tilda-root .t-col{
+    padding-left:10px !important;
+    padding-right:10px !important;
   }
 
   /* Images: always responsive */
@@ -428,7 +441,7 @@ body.is-rebuilt-home .hero__image{
 
   /* Hero typography per requirement */
   body.is-rebuilt-home .hero{padding:28px 0 10px;}
-  body.is-rebuilt-home .hero__inner{padding:0 16px;}
+  body.is-rebuilt-home .hero__inner{padding:0 10px;}
   body.is-rebuilt-home .hero__title{font-size:1.8rem;}
   body.is-rebuilt-home .hero__subtitle{font-size:1rem;}
   body.is-rebuilt-home .hero__button{width:min(100%, 320px);}
@@ -453,8 +466,13 @@ body.is-rebuilt-home .hero__image{
   body.is-rebuilt-home #tilda-root .t-prefix_2,
   body.is-rebuilt-home #tilda-root .t-prefix_3,
   body.is-rebuilt-home #tilda-root .t-prefix_4{
-    margin-left:0 !important;
+    padding-left:0 !important;
   }
+
+  /* T604 ("Наши работы"): keep both arrows visible inside the viewport */
+  body.is-rebuilt-home #rec1147674091 .t-slds__arrow_wrapper-left{left:6px !important;}
+  body.is-rebuilt-home #rec1147674091 .t-slds__arrow_wrapper-right{right:6px !important;}
+  body.is-rebuilt-home #rec1147674091 .t-slds__arrow{z-index:10;}
 
   /* t1066: replace table-like layout with a single column */
   body.is-rebuilt-home #tilda-root .t1066__flex-wrapper{
