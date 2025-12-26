@@ -1153,9 +1153,12 @@ body.is-header-collapsed #rec1147775986 #nav1147775986{
    of the "Ваше имя" input and nudge selected elements by half of that gap.
 */
 @media (max-width:640px){
-  body.has-cozy-auto-nudge.is-rebuilt-home #rec1147674066 .t-form__submit,
-  body.has-cozy-auto-nudge.is-rebuilt-home #rec1169926406 .t-form__submit{
+  body.has-cozy-auto-nudge.is-rebuilt-home #rec1147674066 .t-col,
+  body.has-cozy-auto-nudge.is-rebuilt-home #rec1169926406 .t-col,
+  body.has-cozy-auto-nudge.is-rebuilt-home #rec1147674056 .t-col{
     margin-left:var(--cozy-auto-nudge) !important;
     width:calc(100% - var(--cozy-auto-nudge)) !important;
+    max-width:none !important;
+    box-sizing:border-box !important;
   }
 }

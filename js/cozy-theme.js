@@ -42,7 +42,7 @@
     var body = document.body;
     if (!body) return;
 
-    // We use the right gap of the "Ваше имя" field as a reference.
+    // We use the left gap of the "Ваше имя" field as a reference.
     var nameInput = document.querySelector(
       '#rec1147674066 input#input_1493283059688, #rec1147674066 input[placeholder="Ваше имя"]'
     );
@@ -50,17 +50,17 @@
 
     function apply(){
       var rect = nameInput.getBoundingClientRect();
-      if (!rect || !isFinite(rect.right)) return;
-      var viewportW = window.innerWidth || document.documentElement.clientWidth || 0;
-      if (!viewportW) return;
+      if (!rect || !isFinite(rect.left)) return;
 
-      var rightGap = viewportW - rect.right;
-      if (!isFinite(rightGap)) return;
+      // For 100%-width inputs, `rightGap` is usually ~0. Use the left gap instead.
+      // User requirement: shift right by half of the left gap.
+      var leftGap = rect.left;
+      if (!isFinite(leftGap)) return;
 
       // Clamp to a safe range to avoid weird shifts.
-      var nudge = Math.round(Math.max(0, Math.min(24, rightGap / 2)));
+      var nudge = Math.round(Math.max(0, Math.min(24, leftGap / 2)));
       document.documentElement.style.setProperty('--cozy-auto-nudge', nudge + 'px');
-      body.classList.toggle('has-cozy-auto-nudge', nudge >= 2);
+      body.classList.toggle('has-cozy-auto-nudge', nudge >= 1);
     }
 
     // Run once now and again after layout settles.
