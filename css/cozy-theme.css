@@ -578,6 +578,22 @@ body.is-rebuilt-home .circular-text__text{
   fill:var(--cozy-ink);
 }
 
+/* Desktop: keep the circle fully inside the image area so the glow isn't clipped */
+@media (min-width:641px){
+  body.is-rebuilt-home .circular-text{
+    right:0px;
+  }
+
+  body.is-rebuilt-home .circular-text::before{
+    opacity:.62;
+    filter:blur(18px);
+  }
+
+  body.is-rebuilt-home .circular-text__svg{
+    filter:drop-shadow(0 0 14px var(--cozy-mustard)) drop-shadow(0 0 28px var(--cozy-paper));
+  }
+}
+
 body.is-rebuilt-home .circular-text[data-hover="speedUp"]:hover .circular-text__svg{
   animation-duration:6s;
 }
