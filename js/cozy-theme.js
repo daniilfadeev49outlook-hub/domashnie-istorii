@@ -38,6 +38,40 @@
     update();
   }
 
+  function initAutoNudgeFromNameField(){
+    var body = document.body;
+    if (!body) return;
+
+    // We use the right gap of the "Ваше имя" field as a reference.
+    var nameInput = document.querySelector(
+      '#rec1147674066 input#input_1493283059688, #rec1147674066 input[placeholder="Ваше имя"]'
+    );
+    if (!nameInput || !nameInput.getBoundingClientRect) return;
+
+    function apply(){
+      var rect = nameInput.getBoundingClientRect();
+      if (!rect || !isFinite(rect.right)) return;
+      var viewportW = window.innerWidth || document.documentElement.clientWidth || 0;
+      if (!viewportW) return;
+
+      var rightGap = viewportW - rect.right;
+      if (!isFinite(rightGap)) return;
+
+      // Clamp to a safe range to avoid weird shifts.
+      var nudge = Math.round(Math.max(0, Math.min(24, rightGap / 2)));
+      document.documentElement.style.setProperty('--cozy-auto-nudge', nudge + 'px');
+      body.classList.toggle('has-cozy-auto-nudge', nudge >= 2);
+    }
+
+    // Run once now and again after layout settles.
+    apply();
+    setTimeout(apply, 80);
+    setTimeout(apply, 250);
+
+    window.addEventListener('resize', function(){ apply(); }, {passive:true});
+    window.addEventListener('orientationchange', function(){ setTimeout(apply, 120); });
+  }
+
   function prefersReducedMotion(){
     return window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   }
@@ -128,6 +162,7 @@
     bindAnchors();
     revealOnScroll();
     initHeaderCollapse();
+    initAutoNudgeFromNameField();
   });
 
   document.addEventListener('cozy:tildaLoaded', function(){
@@ -135,6 +170,7 @@
     revealOnScroll();
     // In case header comes from injected Tilda blocks
     initHeaderCollapse();
+    initAutoNudgeFromNameField();
     // If we opened with a hash, re-apply offset once targets exist
     if (location.hash){
       setTimeout(function(){ smoothScrollTo(location.hash); }, 50);

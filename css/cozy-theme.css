@@ -1147,3 +1147,15 @@ body.is-header-collapsed #rec1147775986 #nav1147775986{
   html{scroll-behavior:auto;}
   *{transition:none !important; animation:none !important;}
 }
+
+/* ===== Device alignment nudge (auto) =====
+   Some devices report a slightly different visual viewport; we measure the right gap
+   of the "Ваше имя" input and nudge selected elements by half of that gap.
+*/
+@media (max-width:640px){
+  body.has-cozy-auto-nudge.is-rebuilt-home #rec1147674066 .t-form__submit,
+  body.has-cozy-auto-nudge.is-rebuilt-home #rec1169926406 .t-form__submit{
+    margin-left:var(--cozy-auto-nudge) !important;
+    width:calc(100% - var(--cozy-auto-nudge)) !important;
+  }
+}
