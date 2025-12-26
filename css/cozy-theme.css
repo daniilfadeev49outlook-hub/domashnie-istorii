@@ -432,7 +432,7 @@ body.is-rebuilt-home .hero__media{
   display:flex;
   justify-content:flex-end;
   position:relative;
-  overflow-x:hidden;
+  overflow:visible;
 }
 body.is-rebuilt-home .hero__image{
   width:100%;
@@ -543,6 +543,8 @@ body.is-rebuilt-home .circular-text{
   width:clamp(160px, 22vw, 240px);
   height:clamp(160px, 22vw, 240px);
   opacity:.92;
+  z-index:2;
+  isolation:isolate;
 }
 
 /* Glow for the circular text */
@@ -554,7 +556,8 @@ body.is-rebuilt-home .circular-text::before{
   background:radial-gradient(circle, transparent 56%, var(--cozy-mustard) 63%, transparent 74%);
   filter:blur(14px);
   opacity:.45;
-  z-index:-1;
+  z-index:0;
+  pointer-events:none;
 }
 
 body.is-rebuilt-home .circular-text__svg{
@@ -562,6 +565,8 @@ body.is-rebuilt-home .circular-text__svg{
   height:100%;
   display:block;
   overflow:visible;
+  position:relative;
+  z-index:1;
   transform-origin:50% 50%;
   animation:cozy-circular-spin var(--spin-duration, 20s) linear infinite;
   filter:drop-shadow(0 0 10px var(--cozy-mustard)) drop-shadow(0 0 22px var(--cozy-paper));
@@ -581,17 +586,23 @@ body.is-rebuilt-home .circular-text[data-hover="speedUp"]:hover .circular-text__
 }
 
 @media (max-width:640px){
+  body.is-rebuilt-home .hero__media{
+    flex-direction:column;
+    align-items:center;
+  }
+
   body.is-rebuilt-home .circular-text{
-    top:10px;
-    right:clamp(-14px, -4vw, 0px);
+    position:relative;
+    top:auto;
+    right:auto;
+    margin:12px auto 0;
   }
   body.is-rebuilt-home .circular-text__text{font-size:13px;}
 }
 
 @media (max-width:480px){
   body.is-rebuilt-home .circular-text{
-    top:8px;
-    right:clamp(-12px, -5vw, 0px);
+    margin-top:10px;
     opacity:.85;
   }
 }
