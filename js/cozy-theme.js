@@ -53,12 +53,20 @@
       if (!rect || !isFinite(rect.left)) return;
 
       // For 100%-width inputs, `rightGap` is usually ~0. Use the left gap instead.
-      // User requirement: shift right by half of the left gap.
+      // Practical behavior: when the block sticks to the left edge, nudge it
+      // to match our mobile gutter.
       var leftGap = rect.left;
       if (!isFinite(leftGap)) return;
 
+      var gutter = 14;
+      try{
+        var cssGutter = window.getComputedStyle(document.documentElement).getPropertyValue('--cozy-gutter');
+        var parsed = parseFloat(cssGutter);
+        if (isFinite(parsed) && parsed > 0) gutter = parsed;
+      }catch(e){}
+
       // Clamp to a safe range to avoid weird shifts.
-      var nudge = Math.round(Math.max(0, Math.min(24, leftGap / 2)));
+      var nudge = Math.round(Math.max(0, Math.min(24, gutter - leftGap)));
       document.documentElement.style.setProperty('--cozy-auto-nudge', nudge + 'px');
       body.classList.toggle('has-cozy-auto-nudge', nudge >= 1);
     }
