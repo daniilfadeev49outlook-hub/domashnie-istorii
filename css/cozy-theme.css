@@ -124,6 +124,42 @@ section,
 [class*="card"],
 [class*="block"]{max-width:100%;}
 
+/* ===== Desktop centering tweaks (keep mobile intact) ===== */
+@media (min-width:960px){
+  /* Hero text block */
+  #rec1147674041 .t-container{display:flex;justify-content:center;}
+  #rec1147674041 .t474__descr{margin:0 auto;text-align:center;}
+
+  /* About block + CTA */
+  #rec1147674056 .t-container{display:flex;flex-direction:column;align-items:center;}
+  #rec1147674056 .t469__title,
+  #rec1147674056 .t469__descr{max-width:720px;margin-left:auto;margin-right:auto;text-align:center;}
+  #rec1147674056 .t-btnflex{margin-left:auto;margin-right:auto;display:inline-flex;justify-content:center;}
+
+  /* Contact form alignment */
+  #rec1147674066 .t-container{display:flex;justify-content:center;}
+  #rec1147674066 .t678__form-bottom-text{text-align:center;}
+  #rec1147674066 .t-form__inputsbox{max-width:520px;margin:0 auto;}
+  #rec1147674066 .t-form__submit{display:flex;justify-content:center;}
+
+  /* Reviews section title/controls */
+  #rec1169935511 .t1186__header{flex-wrap:wrap;justify-content:center;gap:18px;}
+  #rec1169935511 .t-section__descr{margin:0 auto;text-align:center;max-width:none;}
+  #rec1169935511 .t1186__controls{display:flex;justify-content:center;gap:12px;}
+  #rec1169935511 .t1186__scroll-icon-wrapper{margin:0 auto;}
+
+  /* Review submit inline form */
+  #rec1169926406 .t-container{display:flex;justify-content:center;}
+  #rec1169926406 .t1045__input-wrapper{margin:0 auto;}
+  #rec1169926406 .t-form__inputsbox_horizontal{display:flex;align-items:center;gap:12px;justify-content:center;}
+  #rec1169926406 .t-input-group{flex:1;min-width:180px;}
+  #rec1169926406 .t-form__submit{margin:0;}
+
+  /* Contact info block */
+  #rec1324703161 .t-container{display:flex;justify-content:center;}
+  #rec1324703161 .t-col{float:none;margin:0 auto;text-align:center;}
+}
+
 html{scroll-behavior:smooth;}
 html, body{overflow-x:hidden;}
 @supports (overflow: clip){
