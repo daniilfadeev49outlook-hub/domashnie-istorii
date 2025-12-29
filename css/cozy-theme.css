@@ -6,8 +6,8 @@
 /* Google Fonts (allowed): loaded via @import to keep HTML edits minimal */
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Open+Sans:wght@400;500;600;700&display=swap');
 
-:root{
-  /* Palette */
+
+  body.is-rebuilt-home .hero__media{overflow:hidden;}
   --cozy-bg:#efe3d4;            /* light cream */
   --cozy-bg-2:#e2d2bd;          /* darker cream */
   --cozy-paper:#f6eee3;         /* paper card */
@@ -432,7 +432,7 @@ body.is-rebuilt-home .hero__media{
   display:flex;
   justify-content:flex-end;
   position:relative;
-  overflow-x:hidden;
+  overflow:hidden;
 }
 body.is-rebuilt-home .hero__image{
   width:100%;
@@ -538,11 +538,12 @@ body.is-rebuilt-home #rec1169935511 .t1186__text{
 /* CircularText (non-React, static implementation) */
 body.is-rebuilt-home .circular-text{
   position:absolute;
-  top:18px;
-  right:clamp(-18px, -2.4vw, 0px);
-  width:clamp(160px, 22vw, 240px);
-  height:clamp(160px, 22vw, 240px);
-  opacity:.92;
+  bottom:12px;
+  left:50%;
+  transform:translateX(-50%);
+  width:clamp(160px, 20vw, 220px);
+  height:clamp(160px, 20vw, 220px);
+  opacity:.9;
   z-index:2;
 }
 
@@ -578,10 +579,12 @@ body.is-rebuilt-home .circular-text__text{
   fill:var(--cozy-ink);
 }
 
-/* Desktop: keep the circle fully inside the image area so the glow isn't clipped */
+/* Desktop: keep the circle centered */
 @media (min-width:641px){
   body.is-rebuilt-home .circular-text{
-    right:0px;
+    left:50%;
+    transform:translateX(-50%);
+    bottom:12px;
   }
 
   body.is-rebuilt-home .circular-text::before{
@@ -604,13 +607,14 @@ body.is-rebuilt-home .circular-text[data-hover="speedUp"]:hover .circular-text__
     align-items:center;
   }
 
-  body.is-rebuilt-home .hero__media{overflow:visible;}
+  body.is-rebuilt-home .hero__media{overflow:hidden;}
 
   body.is-rebuilt-home .circular-text{
     position:relative;
     top:auto;
     right:auto;
-    margin:12px auto 0;
+    bottom:auto;
+    margin:14px auto 0;
   }
   body.is-rebuilt-home .circular-text__text{font-size:13px;}
 }
@@ -619,6 +623,8 @@ body.is-rebuilt-home .circular-text[data-hover="speedUp"]:hover .circular-text__
   body.is-rebuilt-home .circular-text{
     margin-top:10px;
     opacity:.85;
+    left:50% !important;
+    transform:translateX(-50%) !important;
   }
 }
 
