@@ -72,11 +72,11 @@
 </head>
 
 <body class="t-body is-rebuilt-home">
-  <a id="main" class="sr-only" href="#main">Главная</a>
+  <a class="sr-only" href="#main-content">К содержанию</a>
 
   <header class="site-header" role="banner">
     <div class="site-header__inner">
-      <a class="site-logo" href="#main" data-cozy-scroll aria-label="Домашние истории — на главную">Домашние истории</a>
+      <a class="site-logo" href="#main-content" data-cozy-scroll aria-label="Домашние истории — на главную">Домашние истории</a>
       <nav class="site-nav" aria-label="Разделы">
         <a class="site-nav__link" href="#about" data-cozy-scroll>О нас</a>
         <a class="site-nav__link" href="catalog.html">Каталог</a>
@@ -87,40 +87,42 @@
     </div>
   </header>
 
-  <section class="hero" aria-label="Вступление">
-    <div class="hero__inner">
-      <div class="hero__content">
-        <h1 class="hero__title">Домашние истории</h1>
-        <p class="hero__subtitle">Одежда и аксессуары из натуральных материалов</p>
-        <div class="hero__actions">
-          <a class="hero__button" href="catalog.html">Смотреть каталог</a>
-          <a class="hero__button hero__button--ghost" href="#contact" data-cozy-scroll>Связаться</a>
+  <main id="main-content" role="main">
+    <section class="hero" aria-label="Вступление">
+      <div class="hero__inner">
+        <div class="hero__content">
+          <h1 class="hero__title">Домашние истории</h1>
+          <p class="hero__subtitle">Одежда и аксессуары из натуральных материалов</p>
+          <div class="hero__actions">
+            <a class="hero__button" href="catalog.html">Смотреть каталог</a>
+            <a class="hero__button hero__button--ghost" href="#contact" data-cozy-scroll>Связаться</a>
+          </div>
+        </div>
+        <div class="hero__media" aria-hidden="true">
+          <img class="hero__image" src="images/tild3661-3236-4436-b061-616462333262__image.png" alt="" loading="lazy" />
+          <div class="circular-text custom-class" data-hover="speedUp" style="--spin-duration:20s;" aria-hidden="true">
+            <svg class="circular-text__svg" viewBox="0 0 200 200" role="img" aria-label="Домашние истории">
+              <defs>
+                <path id="cozy-circular-path" d="M 100,100 m -72,0 a 72,72 0 1,1 144,0 a 72,72 0 1,1 -144,0" />
+              </defs>
+              <text class="circular-text__text">
+                <textPath href="#cozy-circular-path" startOffset="0%">ДОМАШНИЕ ИСТОРИИ • ДОМАШНИЕ ИСТОРИИ • ДОМАШНИЕ ИСТОРИИ • ДОМАШНИЕ ИСТОРИИ •</textPath>
+              </text>
+            </svg>
+          </div>
         </div>
       </div>
-      <div class="hero__media" aria-hidden="true">
-        <img class="hero__image" src="images/tild3661-3236-4436-b061-616462333262__image.png" alt="" loading="lazy" />
-        <div class="circular-text custom-class" data-hover="speedUp" style="--spin-duration:20s;" aria-hidden="true">
-          <svg class="circular-text__svg" viewBox="0 0 200 200" role="img" aria-label="Домашние истории">
-            <defs>
-              <path id="cozy-circular-path" d="M 100,100 m -72,0 a 72,72 0 1,1 144,0 a 72,72 0 1,1 -144,0" />
-            </defs>
-            <text class="circular-text__text">
-              <textPath href="#cozy-circular-path" startOffset="0%">ДОМАШНИЕ ИСТОРИИ • ДОМАШНИЕ ИСТОРИИ • ДОМАШНИЕ ИСТОРИИ • ДОМАШНИЕ ИСТОРИИ •</textPath>
-            </text>
-          </svg>
-        </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <div id="tilda-root" data-src="files/page71962991body.html"></div>
-  <noscript>
-    <div style="padding:24px; text-align:center;">
-      Для просмотра каталога и форм включите JavaScript.
-      Если вы открываете сайт с компьютера, запустите локальный сервер (serve.cmd) и откройте
-      http://localhost:8000/index.html
-    </div>
-  </noscript>
+    <div id="tilda-root" data-src="files/page71962991body.html"></div>
+    <noscript>
+      <div style="padding:24px; text-align:center;">
+        Для просмотра каталога и форм включите JavaScript.
+        Если вы открываете сайт с компьютера, запустите локальный сервер (serve.cmd) и откройте
+        http://localhost:8000/index.html
+      </div>
+    </noscript>
+  </main>
 
 </body>
 </html>

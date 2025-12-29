@@ -5,9 +5,7 @@
 
 /* Google Fonts (allowed): loaded via @import to keep HTML edits minimal */
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Open+Sans:wght@400;500;600;700&display=swap');
-
-
-  body.is-rebuilt-home .hero__media{overflow:hidden;}
+:root{
   --cozy-bg:#efe3d4;            /* light cream */
   --cozy-bg-2:#e2d2bd;          /* darker cream */
   --cozy-paper:#f6eee3;         /* paper card */
@@ -28,6 +26,103 @@
 
   --cozy-header-h:64px;
 }
+
+body.is-rebuilt-home .hero__media{overflow:hidden;}
+
+/* === Responsive base (mobile-first) to prevent horizontal scroll and unify layout === */
+*, *::before, *::after{box-sizing:border-box;}
+
+html{overflow-x:hidden;}
+body{margin:0;overflow-x:hidden;}
+
+img, iframe, video, object{max-width:100%;height:auto;display:block;}
+
+p, h1, h2, h3, h4, h5, h6,
+li, a, span, div{overflow-wrap:break-word;word-wrap:break-word;}
+
+.container,
+.t-container,
+.t-col,
+.row,
+.grid-container{
+  width:100%;
+  max-width:1200px;
+  margin:0 auto;
+  padding:0 16px;
+}
+
+.grid{display:grid;gap:16px;grid-template-columns:1fr;}
+.flex{display:flex;flex-wrap:wrap;gap:16px;}
+
+.card,
+.col,
+.t754__col,
+.t-rec .t-col{
+  width:100%;
+  flex:0 0 100%;
+  min-width:0;
+}
+
+button,
+input[type="button"],
+input[type="submit"],
+a.t-btn,
+.hero__button,
+.filter-tag__text{width:100%;max-width:100%;}
+
+form input,
+form textarea,
+form select,
+form button{width:100%;max-width:100%;}
+
+section,
+.t-rec{padding-left:16px;padding-right:16px;}
+
+@media (min-width:768px){
+  .grid{grid-template-columns:repeat(2,1fr);gap:20px;}
+
+  .card,
+  .col,
+  .t754__col,
+  .t-rec .t-col{flex:0 0 50%;width:50%;}
+
+  button,
+  input[type="button"],
+  input[type="submit"],
+  a.t-btn,
+  .hero__button,
+  .filter-tag__text{width:auto;}
+}
+
+@media (min-width:1024px){
+  .grid{grid-template-columns:repeat(3,1fr);gap:24px;}
+
+  .card,
+  .col,
+  .t754__col,
+  .t-rec .t-col{flex:0 0 33.333%;width:33.333%;}
+
+  button,
+  input[type="button"],
+  input[type="submit"],
+  a.t-btn,
+  .hero__button,
+  .filter-tag__text{width:auto;}
+}
+
+.t-slds,
+.t-slds__container,
+.t1002__picture-wrapper,
+.t754__imgwrapper,
+.t-cover,
+.t-cover__carrier{
+  max-width:100%;
+  overflow:hidden;
+}
+
+[class*="col"],
+[class*="card"],
+[class*="block"]{max-width:100%;}
 
 html{scroll-behavior:smooth;}
 html, body{overflow-x:hidden;}
