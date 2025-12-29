@@ -1168,6 +1168,100 @@ body.is-header-collapsed #rec1147775986 #nav1147775986{
   height:var(--cozy-header-h) !important;
 }
 
+/* ===== RWD overflow safety ===== */
+/* Keep long words and URLs from forcing horizontal scroll */
+body.t-body,
+body.t-body .t-title,
+body.t-body .t-descr,
+body.t-body .t-text,
+body.t-body .t-name,
+body.t-body .t-rec,
+body.t-body .t-col{
+  overflow-wrap:break-word;
+  word-break:break-word;
+  hyphens:auto;
+}
+
+/* Let flex/grid children shrink instead of overflowing */
+body.t-body .t-container,
+body.t-body .t-col,
+body.t-body .t-row,
+body.t-body .t-records,
+body.t-body .hero__inner,
+body.t-body .hero__content,
+body.t-body .hero__media,
+body.t-body .t754__parent,
+body.t-body .t754__col{
+  min-width:0;
+}
+
+/* Universal media sizing */
+body.t-body img,
+body.t-body svg,
+body.t-body video,
+body.t-body canvas,
+body.t-body iframe,
+body.t-body table{
+  max-width:100%;
+  height:auto;
+}
+
+/* Tables that remain wide should scroll inside the viewport */
+body.t-body table{
+  display:block;
+  overflow-x:auto;
+  -webkit-overflow-scrolling:touch;
+}
+
+/* Forms: inputs and buttons span the available width on mobile */
+@media (max-width:640px){
+  body.t-body .t-form__inputsbox,
+  body.t-body .t-input-block,
+  body.t-body .t-input,
+  body.t-body .t-input-phonemask,
+  body.t-body .t-textarea,
+  body.t-body .t-select,
+  body.t-body .t-form__submit,
+  body.t-body .t-submit,
+  body.t-body input[type="text"],
+  body.t-body input[type="email"],
+  body.t-body input[type="tel"],
+  body.t-body input[type="number"],
+  body.t-body input[type="search"],
+  body.t-body button{
+    width:100% !important;
+    max-width:100% !important;
+  }
+
+  body.t-body .hero__actions{width:100%;}
+  body.t-body .hero__button{width:100%; max-width:320px;}
+}
+
+/* Hero grid: ensure children flex correctly on mobile */
+@media (max-width:640px){
+  body.is-rebuilt-home .hero__inner{grid-template-columns:1fr;}
+  body.is-rebuilt-home .hero__content,
+  body.is-rebuilt-home .hero__media{
+    width:100%;
+    min-width:0;
+  }
+}
+
+/* Product cards: avoid oversized widths on very narrow screens */
+@media (max-width:480px){
+  #rec1147674086 .t754__parent{
+    padding-left:14px !important;
+    padding-right:14px !important;
+    scroll-padding:14px !important;
+  }
+
+  #rec1147674086 .t754__col{
+    flex:0 0 clamp(260px, 88vw, 320px) !important;
+    width:clamp(260px, 88vw, 320px) !important;
+    max-width:clamp(260px, 88vw, 320px) !important;
+  }
+}
+
 /* ===== Reduced motion ===== */
 @media (prefers-reduced-motion: reduce){
   html{scroll-behavior:auto;}
