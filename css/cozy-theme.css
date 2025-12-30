@@ -56,8 +56,7 @@ li, a, span, div{overflow-wrap:break-word;word-wrap:break-word;}
 
 .card,
 .col,
-.t754__col,
-.t-rec .t-col{
+.t754__col{
   width:100%;
   flex:0 0 100%;
   min-width:0;
@@ -83,8 +82,7 @@ section,
 
   .card,
   .col,
-  .t754__col,
-  .t-rec .t-col{flex:0 0 50%;width:50%;}
+  .t754__col{flex:0 0 50%;width:50%;}
 
   button,
   input[type="button"],
@@ -99,8 +97,7 @@ section,
 
   .card,
   .col,
-  .t754__col,
-  .t-rec .t-col{flex:0 0 33.333%;width:33.333%;}
+  .t754__col{flex:0 0 33.333%;width:33.333%;}
 
   button,
   input[type="button"],
@@ -144,7 +141,19 @@ section,
 
   /* Reviews section title/controls */
   #rec1169935511 .t1186__header{flex-wrap:wrap;justify-content:center;gap:18px;}
-  #rec1169935511 .t-section__descr{margin:0 auto;text-align:center;max-width:none;}
+  #rec1169935511 .t-section__descr{
+    margin:0 auto;
+    text-align:center;
+    max-width:none;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    padding:12px 18px;
+    white-space:nowrap;
+    border-radius:24px;
+    background:rgba(255,255,255,.78);
+    box-shadow:0 10px 24px rgba(0,0,0,.08);
+  }
   #rec1169935511 .t1186__controls{display:flex;justify-content:center;gap:12px;}
   #rec1169935511 .t1186__scroll-icon-wrapper{margin:0 auto;}
 
@@ -1197,6 +1206,9 @@ body.is-header-collapsed #rec1147775986 .t229__list_item .t-menu__link-item{
   padding:0 18px !important;
   font-weight:800;
 }
+#rec1147674066 .t-form__submit{justify-content:center; margin-top:12px;}
+#rec1147674066 .t-submit{min-width:220px;}
+#rec1147674066 .t678__form-bottom-text{margin-top:10px; text-align:center;}
 .dh-trust-note{
   margin-top:10px;
   text-align:center;
@@ -1217,6 +1229,7 @@ body.is-header-collapsed #rec1147775986 .t229__list_item .t-menu__link-item{
     linear-gradient(135deg, rgba(255,255,255,.05), rgba(255,255,255,.08));
   opacity:.55;
   pointer-events:none;
+  z-index:0;
 }
 #rec1324703161 .t564::after{
   content:"";
@@ -1231,7 +1244,9 @@ body.is-header-collapsed #rec1147775986 .t229__list_item .t-menu__link-item{
   outline:2px solid rgba(255,255,255,.65);
   outline-offset:4px;
   filter:drop-shadow(0 10px 18px rgba(0,0,0,.28));
+  z-index:0;
 }
+#rec1324703161 .t564 .t-container{position:relative; z-index:1;}
 #rec1324703161 .dh-contact-actions{
   display:flex;
   flex-wrap:wrap;
